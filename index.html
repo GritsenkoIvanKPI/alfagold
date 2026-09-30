@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Експрес-аудит обліку ФОП і ТОВ — Alfa Gold</title>
+<meta name="description" content="Експрес-аудит бухгалтерського та податкового обліку ФОП і ТОВ від Alfa Gold. Виявимо помилки й ризики, підготуємо експертний висновок і план дій.">
+<meta name="theme-color" content="#0a2a40">
+<link rel="icon" type="image/png" href="brand_assets/Group-59.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero.jpg">
+<style>
+@font-face { font-family: "Fixel Display"; src: url("fonts/FixelDisplay-Medium.woff") format("woff"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Fixel Display"; src: url("fonts/FixelDisplay-SemiBold.woff") format("woff"); font-weight: 600; font-display: swap; }
+
+:root {
+  /* Brand — alfagold.ua */
+  --navy: #0a2a40;
+  --navy-deep: #06192a;
+  --navy-soft: #343d5c;
+  --gold: #ff9c1c;
+  --gold-hover: #ef9736;
+  --gold-soft: #fff1dd;
+
+  /* Neutrals */
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --field: #f2f2f2;
+  --line: #e4e6e8;
+  --text: #0a2a40;
+  --muted: #5d6974;
+  --muted-2: #8b949b;
+
+  /* Risk scale */
+  --risk-critical: #d8473a;
+  --risk-high: #ff9c1c;
+  --risk-medium: #f0c53d;
+  --risk-low: #5d9f78;
+
+  /* Type */
+  --font-head: "Fixel Display", "Manrope", sans-serif;
+  --font-body: "Manrope", sans-serif;
+
+  /* Spacing tokens */
+  --gutter: 30px;
+  --s-1: 8px;
+  --s-2: 16px;
+  --s-3: 24px;
+  --s-4: 32px;
+  --s-5: 48px;
+  --s-6: 64px;
+  --s-section: 120px;
+
+  /* Radius */
+  --r-sm: 12px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+
+  /* Depth: base → elevated → floating */
+  --shadow-elevated: 0 1px 2px rgba(10, 42, 64, .04), 0 8px 24px -12px rgba(10, 42, 64, .10);
+  --shadow-floating: 0 2px 6px rgba(10, 42, 64, .06), 0 24px 48px -16px rgba(10, 42, 64, .24), 0 48px 96px -32px rgba(6, 25, 42, .28);
+
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--text); }
+
+.icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.icon--fill { fill: currentColor; stroke: none; }
+
+.container { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: var(--s-section) 0; position: relative; }
+.section--flush { padding-top: 0; }
+.cta { padding-bottom: var(--s-section); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Grain texture for dark surfaces */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Eyebrow & headings ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.eyebrow .mark { width: 18px; height: 18px; color: var(--gold); }
+.eyebrow--light { color: #fff; }
+
+.h2 {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -.03em;
+  font-weight: 500;
+}
+.h2 em { font-style: normal; color: var(--gold); }
+.lead { font-size: 18px; line-height: 1.7; color: var(--muted); }
+
+.section-head { display: grid; gap: var(--s-3); }
+.section-head--center { text-align: center; justify-items: center; }
+.section-head--center .h2 { max-width: 820px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  --btn-bg: var(--gold);
+  --btn-fg: var(--navy);
+  --btn-fill: var(--navy);
+  --btn-fill-fg: #fff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform .5s var(--ease-out), color .45s var(--ease-out);
+}
+/* Colour fill rising from the bottom on hover */
+.btn::before {
+  content: "";
+  position: absolute;
+  left: -25%;
+  top: 100%;
+  z-index: -1;
+  width: 150%;
+  height: 250%;
+  border-radius: 50%;
+  background: var(--btn-fill);
+  transform: translateY(0);
+  transition: transform .65s var(--ease-out);
+}
+.btn:hover { color: var(--btn-fill-fg); transform: translateY(-2px); }
+.btn:hover::before { transform: translateY(-70%); }
+.btn .icon { width: 18px; height: 18px; }
+.btn:hover .icon[class="icon"] { animation: arrowLoop .6s var(--ease-out); }
+@keyframes arrowLoop {
+  0% { transform: translate(0, 0); opacity: 1; }
+  45% { transform: translate(14px, -14px); opacity: 0; }
+  46% { transform: translate(-14px, 14px); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+.btn:active { transform: translateY(0) scale(.97); transition-duration: .15s; }
+.btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.btn--lg { height: 60px; padding: 0 32px; font-size: 17px; }
+.btn--block { width: 100%; height: 72px; font-size: 18px; border-radius: var(--r-pill); }
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: #fff;
+  --btn-fill: #fff;
+  --btn-fill-fg: var(--navy);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .85);
+}
+.btn--ghost:focus-visible { outline-color: #fff; }
+.btn--navy { --btn-bg: var(--navy); --btn-fg: #fff; --btn-fill: var(--gold); --btn-fill-fg: var(--navy); }
+/* Buttons placed directly on dark backgrounds fill white instead of navy */
+.hero__actions .btn:not(.btn--ghost), .steps-foot .btn { --btn-fill: #fff; --btn-fill-fg: var(--navy); }
+
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0 var(--gutter);
+  pointer-events: none;
+}
+.site-header__bar {
+  pointer-events: auto;
+  max-width: 1380px;
+  margin: 0 auto;
+  height: 76px;
+  padding: 0 16px 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  background: var(--surface);
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  transition: box-shadow .3s ease;
+}
+.site-header.is-scrolled .site-header__bar { box-shadow: var(--shadow-floating); }
+.logo { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; gap: 12px; border-radius: 8px; transition: opacity .2s ease, transform .4s var(--ease-spring); }
+.logo img { height: 56px; width: auto; }
+.logo:hover { opacity: .8; }
+.logo:active { transform: scale(.97); }
+.logo:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.nav { display: flex; gap: 32px; }
+.nav a {
+  position: relative;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+  padding: 6px 0;
+  border-radius: 4px;
+  transition: opacity .2s ease;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s var(--ease-out);
+}
+.nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); }
+.nav a:active { opacity: .6; }
+.nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.call-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 20px 0 8px;
+  border-radius: var(--r-pill);
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  transition: transform .45s var(--ease-spring), background-color .25s ease;
+}
+.call-pill__icon { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--gold); color: var(--navy); transition: transform .45s var(--ease-spring); }
+.call-pill__icon .icon { width: 17px; height: 17px; }
+.call-pill:hover { background: var(--navy-soft); transform: translateY(-1px); }
+.call-pill:hover .call-pill__icon { transform: rotate(-12deg) scale(1.06); }
+.call-pill:active { transform: scale(.97); }
+.call-pill:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.menu-toggle {
+  display: none;
+  width: 48px; height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--field);
+  color: var(--navy);
+  cursor: pointer;
+  place-items: center;
+  transition: transform .4s var(--ease-spring), background-color .2s ease;
+}
+.menu-toggle:hover { background: var(--line); }
+.menu-toggle:active { transform: scale(.94); }
+.menu-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.mobile-menu {
+  pointer-events: auto;
+  max-width: 1380px;
+  margin: 8px auto 0;
+  padding: var(--s-2);
+  background: var(--surface);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-floating);
+  display: grid;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition: opacity .25s ease, transform .4s var(--ease-spring), visibility 0s linear .25s;
+}
+.mobile-menu.is-open { opacity: 1; transform: none; visibility: visible; transition: opacity .25s ease, transform .4s var(--ease-spring); }
+.mobile-menu a { padding: 12px 14px; border-radius: var(--r-sm); font-weight: 600; transition: background-color .2s ease; }
+.mobile-menu a:hover, .mobile-menu a:focus-visible { background: var(--field); outline: none; }
+.mobile-menu a:active { background: var(--line); }
+.mobile-menu .btn { margin-top: 8px; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: max(860px, 100svh);
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background: var(--navy-deep);
+  overflow: hidden;
+}
+.hero__media { position: absolute; inset: 0; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 30%; transform: scale(1.04); animation: heroZoom 1.8s var(--ease-out) forwards; }
+.hero__tint { position: absolute; inset: 0; background: rgba(10, 42, 64, .35); mix-blend-mode: multiply; }
+.hero__shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(6, 25, 42, .92) 0%, rgba(6, 25, 42, .55) 38%, rgba(6, 25, 42, 0) 70%),
+    radial-gradient(ellipse 60% 70% at 0% 100%, rgba(6, 25, 42, .75) 0%, rgba(6, 25, 42, 0) 70%);
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: end;
+  gap: var(--s-5);
+  padding-top: 140px;
+  padding-bottom: 72px;
+}
+.hero__badge { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .02em; }
+.hero__badge .dots { display: inline-flex; gap: 4px; }
+.hero__badge .dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.hero__badge .dots span:nth-child(2) { opacity: .75; }
+.hero__badge .dots span:nth-child(3) { opacity: .5; }
+.hero h1 {
+  margin-top: var(--s-4);
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -.03em;
+  font-weight: 500;
+  color: #fff;
+  max-width: 820px;
+}
+.hl { position: relative; color: var(--gold); white-space: nowrap; }
+.hl::after {
+  content: "";
+  position: absolute;
+  left: 2px; right: 2px; bottom: 2px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underline 1s .9s var(--ease-out) forwards;
+}
+@keyframes underline { to { transform: scaleX(1); } }
+.hero__text { margin-top: var(--s-3); max-width: 640px; font-size: 19px; line-height: 1.65; color: rgba(255, 255, 255, .82); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-4); }
+.hero__note { display: flex; align-items: center; gap: 10px; margin-top: var(--s-3); font-size: 14px; color: rgba(255, 255, 255, .7); }
+.hero__note .icon { width: 18px; height: 18px; color: var(--gold); }
+
+.hero-card {
+  padding: 8px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, .22);
+  border: 1px solid rgba(255, 255, 255, .35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-floating);
+}
+.hero-card__body { background: var(--surface); border-radius: 22px; color: var(--text); overflow: hidden; }
+.hero-card__top { padding: 24px 24px 20px; }
+.hero-card__label { font-size: 14px; color: var(--muted); font-weight: 500; }
+.hero-card__title { margin-top: 6px; font-family: var(--font-head); font-size: 24px; line-height: 30px; letter-spacing: -.02em; font-weight: 600; }
+.checklist { display: grid; gap: 12px; margin-top: 18px; }
+.checklist li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 15px; line-height: 1.5; color: var(--text); font-weight: 500; }
+.check { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--gold-soft); color: var(--gold-hover); margin-top: 1px; }
+.check .icon { width: 13px; height: 13px; stroke-width: 2.5; }
+.hero-card__foot { padding: 18px 24px 22px; border-top: 1px solid var(--line); }
+.quote-mark { width: 26px; height: 20px; color: var(--navy); }
+.hero-card__quote { margin-top: 10px; font-size: 15px; line-height: 1.55; font-weight: 600; }
+.hero-card__meta { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+.avatars { display: flex; }
+.avatars img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid var(--surface); }
+.avatars img + img { margin-left: -10px; }
+.avatars--lg img { width: 44px; height: 44px; }
+
+/* ---------- Trust strip ---------- */
+.trust { padding: 80px 0 0; }
+.trust__inner { display: grid; grid-template-columns: 380px 1fr; align-items: center; gap: var(--s-4); }
+.trust__title { font-family: var(--font-head); font-size: 22px; line-height: 32px; font-weight: 500; letter-spacing: -.01em; }
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee__track { display: flex; gap: var(--s-3); width: max-content; animation: marquee 38s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(calc(-50% - 12px)); } }
+.stat-tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 92px;
+  padding: 0 28px;
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-elevated);
+  white-space: nowrap;
+}
+.stat-tile b { font-family: var(--font-head); font-size: 32px; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
+.stat-tile span { font-size: 14px; line-height: 1.35; color: var(--muted); font-weight: 500; }
+
+/* ---------- Who needs (cards grid) ---------- */
+.needs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); margin-top: var(--s-6); }
+.need-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  padding: var(--s-4);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow-elevated);
+  transition: transform .5s var(--ease-spring), box-shadow .4s ease;
+}
+.need-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-floating); }
+.need-card__icon { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--navy); color: var(--gold); }
+.need-card__icon .icon { width: 24px; height: 24px; }
+.nowrap { white-space: nowrap; }
+.need-card h3 { text-wrap: balance; margin-top: auto; padding-top: var(--s-5); font-size: 24px; line-height: 30px; letter-spacing: -.02em; font-weight: 600; }
+.need-card p { margin-top: 12px; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.needs-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s-3); margin-top: var(--s-5); }
+.needs-cta p { color: var(--muted); font-size: 17px; }
+
+/* ---------- Formats (case-study cards) ---------- */
+.row-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s-4); }
+
+.formats-list { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
+.format-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 560px;
+  gap: var(--s-6);
+  padding: 16px 16px 16px var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-elevated);
+}
+.format-card__body { display: flex; flex-direction: column; padding: var(--s-4) 0; }
+.format-card--reverse { grid-template-columns: 560px minmax(0, 1fr); padding: 16px var(--s-5) 16px 16px; }
+.format-card--reverse .format-card__media { order: -1; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  height: 64px;
+  padding: 0 22px;
+  border-radius: var(--r-sm);
+  background: var(--field);
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--navy);
+}
+.chip small { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.format-card h3 { margin-top: var(--s-4); font-size: 28px; line-height: 34px; letter-spacing: -.02em; font-weight: 600; }
+.format-card p { margin-top: 14px; max-width: 620px; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px solid var(--line); }
+.tags li { padding: 6px 12px; border-radius: var(--r-pill); background: var(--bg); font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--navy); }
+.format-card .btn { margin-top: auto; align-self: flex-start; }
+.format-card .tags { margin-bottom: var(--s-4); }
+.format-card__media { position: relative; border-radius: var(--r-md); overflow: hidden; min-height: 420px; }
+.media-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.media-tint { position: absolute; inset: 0; background: rgba(10, 42, 64, .12); mix-blend-mode: multiply; }
+.media-shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0) 45%); }
+.format-card:hover .media-img { transform: scale(1.04); }
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: var(--s-4);
+  padding: 20px 24px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.callout .icon { width: 22px; height: 22px; color: var(--gold-hover); margin-top: 1px; }
+.callout strong { font-weight: 700; }
+
+/* ---------- CTA banner ---------- */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  background: var(--navy-deep);
+  color: #fff;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-floating);
+}
+.cta-banner__media { position: absolute; inset: 0; }
+.cta-banner__media img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; }
+.cta-banner__shade {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to right, rgba(6, 25, 42, .96) 0%, rgba(6, 25, 42, .82) 42%, rgba(6, 25, 42, .1) 80%),
+    linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0) 50%);
+}
+.cta-banner__content { position: relative; z-index: 1; padding: var(--s-6); max-width: 720px; }
+.cta-banner .h2 { color: #fff; margin-top: var(--s-3); }
+.cta-banner p { margin-top: var(--s-3); font-size: 18px; line-height: 1.7; color: rgba(255, 255, 255, .78); max-width: 560px; }
+.cta-banner .hero__actions { margin-top: var(--s-5); }
+
+/* ---------- Steps (dark) ---------- */
+.dark {
+  position: relative;
+  background: var(--navy-deep);
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+}
+.dark::before {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, var(--navy) 0%, var(--navy-deep) 60%);
+}
+.dark .h2 { color: #fff; }
+.dark .lead { color: rgba(255, 255, 255, .7); }
+
+.bullets li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.5; color: var(--text); }
+.bullets li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+
+/* Timeline */
+.timeline {
+  --node: 64px;
+  --p: 0;
+  position: relative;
+  display: grid;
+  gap: var(--s-3);
+  max-width: 1080px;
+  margin: var(--s-6) auto 0;
+  padding: 0;
+  list-style: none;
+}
+.timeline__track {
+  position: absolute;
+  left: calc(var(--node) / 2 - 1px);
+  top: var(--t-top, 32px);
+  height: var(--t-h, 0px);
+  width: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .12);
+}
+.timeline__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--gold);
+  transform: scaleY(var(--p));
+  transform-origin: top;
+}
+.timeline__tip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: translateY(calc(var(--p) * var(--t-h, 0px)));
+}
+.t-step { position: relative; display: grid; grid-template-columns: var(--node) minmax(0, 1fr); gap: var(--s-4); align-items: start; }
+.t-step__node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  margin-top: 28px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 2px solid rgba(255, 255, 255, .18);
+  color: rgba(255, 255, 255, .55);
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.t-step__node::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: var(--gold);
+  transform: scale(0);
+  transition: transform .6s var(--ease-spring);
+}
+.t-step__node::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0;
+}
+.t-step__node > span { position: relative; transition: color .3s ease; }
+.t-step.is-active .t-step__node::before { transform: scale(1); }
+.t-step.is-active .t-step__node > span { color: var(--navy); }
+.t-step.is-current .t-step__node::after { animation: ring 1.8s var(--ease-out) infinite; }
+@keyframes ring { 0% { opacity: .8; transform: scale(.85); } 100% { opacity: 0; transform: scale(1.35); } }
+
+.t-step__card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--s-4) 40px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
+  opacity: .65;
+  transform: translateX(24px);
+  transition: opacity .6s var(--ease-out), transform .8s var(--ease-out);
+}
+.t-step__card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .7s var(--ease-out) .1s;
+}
+.t-step.is-active .t-step__card { opacity: 1; transform: none; }
+.t-step.is-active .t-step__card::before { transform: scaleY(1); }
+.t-step__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); }
+.t-step__kicker { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--gold-hover); }
+.t-step__kicker span { color: var(--muted-2); font-weight: 600; }
+.t-step__card h3 { margin-top: 8px; font-size: 30px; line-height: 38px; letter-spacing: -.02em; font-weight: 600; }
+.t-step__icon { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--gold); transition: transform .6s var(--ease-spring); }
+.t-step__icon .icon { width: 24px; height: 24px; }
+.t-step.is-active .t-step__icon { transform: rotate(-8deg); }
+.t-step__body p { margin-top: 14px; max-width: 760px; font-size: 17px; line-height: 1.65; color: var(--muted); }
+.t-step__body .bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 32px; margin-top: 16px; }
+.t-step__foot { display: flex; align-items: center; gap: 10px; margin-top: var(--s-3); padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; font-weight: 600; color: var(--navy); }
+.t-step__foot .icon { width: 20px; height: 20px; color: var(--gold-hover); }
+
+.steps-foot { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); margin-top: var(--s-5); text-align: center; }
+.steps-foot .note { display: inline-flex; align-items: center; gap: 12px; max-width: 760px; padding: 14px 22px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .88); font-size: 16px; line-height: 1.5; text-align: left; }
+.steps-foot .note .icon { color: var(--gold); }
+
+/* ---------- What you get (split) ---------- */
+.split { display: grid; grid-template-columns: 628px minmax(0, 1fr); gap: 96px; align-items: stretch; }
+.split__media { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 560px; box-shadow: var(--shadow-elevated); }
+.split__media .media-shade { background: linear-gradient(to top, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0) 55%); }
+.risk-card {
+  position: absolute;
+  left: 24px; right: 24px; bottom: 24px;
+  z-index: 1;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow-floating);
+}
+.risk-card h4 { font-size: 18px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; }
+.risk-list { display: grid; gap: 10px; margin-top: 14px; }
+.risk-list li { display: grid; grid-template-columns: 104px 1fr; gap: 12px; align-items: baseline; font-size: 14px; line-height: 1.45; color: var(--muted); }
+.risk-tag { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
+.risk-tag::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.risk-tag--critical { --c: var(--risk-critical); }
+.risk-tag--high { --c: var(--risk-high); }
+.risk-tag--medium { --c: var(--risk-medium); }
+.risk-tag--low { --c: var(--risk-low); }
+
+.split__content .h2 { margin-top: var(--s-3); }
+.split__content .lead { margin-top: var(--s-4); max-width: 520px; }
+.feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; margin-top: var(--s-5); }
+.feature-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; font-size: 16px; line-height: 1.4; color: var(--muted); }
+.feature-list strong { display: block; font-family: var(--font-head); font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; color: var(--navy); }
+.feature-list__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--navy); color: var(--gold); transition: transform .5s var(--ease-spring); }
+.feature-list__icon .icon { width: 21px; height: 21px; }
+.feature-list li:hover .feature-list__icon { transform: rotate(-8deg) scale(1.06); }
+.fineprint { display: flex; gap: 12px; margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--muted); }
+.fineprint .icon { width: 18px; height: 18px; color: var(--muted-2); margin-top: 2px; }
+
+/* ---------- Why Alfa Gold (about) ---------- */
+.about-head { display: block; }
+.about-head .h2 { margin-top: var(--s-3); }
+.about-grid { display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 24px; margin-top: var(--s-6); }
+.about-card { display: flex; flex-direction: column; padding: var(--s-4); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-elevated); }
+.stat-row { display: grid; grid-template-columns: 170px 1fr; align-items: start; gap: 24px; padding: 8px 0 24px; border-bottom: 1px solid var(--line); }
+.stat-row + .stat-row { padding-top: 24px; }
+.stat-row b { font-family: var(--font-head); font-size: 72px; line-height: 1; letter-spacing: -.05em; font-weight: 600; color: var(--navy); }
+.stat-row b sup { font-size: 30px; margin-left: 2px; vertical-align: top; color: var(--gold); }
+.stat-row span { padding-top: 10px; font-size: 16px; line-height: 1.5; color: var(--muted); }
+.about-card .checklist { margin-top: var(--s-4); gap: 14px; }
+.about-card .checklist li { font-size: 16px; }
+.about-card .btn { margin-top: var(--s-4); align-self: flex-start; }
+
+.about-media { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 656px; box-shadow: var(--shadow-elevated); }
+.about-media .media-img { object-position: 50% 20%; }
+.about-media__caption { position: absolute; left: 32px; bottom: 32px; z-index: 1; color: #fff; font-size: 14px; line-height: 1.5; max-width: 300px; }
+.about-media__caption b { display: block; font-size: 16px; }
+.consult-card {
+  position: absolute;
+  right: 32px; bottom: 32px;
+  z-index: 1;
+  width: 380px;
+  padding: 24px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-floating);
+}
+.consult-card__top { display: flex; align-items: center; justify-content: space-between; }
+.online { display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: var(--r-pill); background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; }
+.online::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .35; transform: scale(.8); } }
+.consult-card h3 { margin-top: 18px; font-size: 24px; line-height: 32px; letter-spacing: -.02em; font-weight: 600; }
+.consult-card p { margin-top: 10px; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.consult-card .btn { margin-top: 22px; height: 52px; }
+
+/* ---------- Cost (FAQ layout) ---------- */
+.faq { display: grid; grid-template-columns: minmax(0, 1fr) 612px; gap: var(--s-6); align-items: start; }
+.faq__intro .h2 { margin-top: var(--s-3); max-width: 600px; }
+.faq__intro .lead { margin-top: var(--s-4); max-width: 520px; }
+.faq__intro .btn { margin-top: var(--s-5); }
+.faq__list { display: grid; gap: var(--s-2); }
+.acc { border-radius: var(--r-md); background: var(--surface); box-shadow: var(--shadow-elevated); transition: box-shadow .3s ease; }
+.acc[open] { box-shadow: var(--shadow-floating); }
+.acc summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  min-height: 80px;
+  padding: 18px 24px;
+  cursor: pointer;
+  border-radius: var(--r-md);
+  font-family: var(--font-head);
+  font-size: 22px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  transition: opacity .2s ease;
+}
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary:hover .chev { transform: translateY(2px); }
+.acc summary:active { opacity: .7; }
+.acc summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.acc .num { display: inline-grid; place-items: center; width: 32px; height: 32px; margin-right: 14px; border-radius: 50%; background: var(--bg); font-family: var(--font-body); font-size: 13px; font-weight: 700; color: var(--muted); flex: none; }
+.acc summary > span { display: flex; align-items: center; }
+.chev { width: 22px; height: 22px; color: var(--navy); transition: transform .45s var(--ease-spring); }
+.acc[open] .chev { transform: rotate(180deg); }
+.acc[open] summary:hover .chev { transform: rotate(180deg) translateY(2px); }
+.acc__body { padding: 0 24px 24px 70px; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.acc[open] .acc__body { animation: accIn .45s var(--ease-out); }
+@keyframes accIn { from { opacity: 0; transform: translateY(-6px); } }
+
+/* ---------- Form section ---------- */
+.contact { padding: var(--s-section) 0; background: #0b1117; color: #fff; }
+.contact::before { background: linear-gradient(to bottom, var(--navy-deep), #0b1117 70%); }
+.streaks {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 70%;
+  z-index: -1;
+  -webkit-mask-image: linear-gradient(to top, #000 10%, rgba(0, 0, 0, .6) 45%, transparent 100%);
+  mask-image: linear-gradient(to top, #000 10%, rgba(0, 0, 0, .6) 45%, transparent 100%);
+  opacity: .9;
+}
+.streaks span { position: absolute; inset: 0; filter: blur(1.5px); }
+.streaks span:nth-child(1) { background: repeating-linear-gradient(90deg, rgba(255, 156, 28, 0) 0 9px, rgba(255, 156, 28, .35) 11px, rgba(255, 156, 28, 0) 14px 23px); }
+.streaks span:nth-child(2) { background: repeating-linear-gradient(90deg, rgba(255, 214, 160, 0) 0 17px, rgba(255, 214, 160, .28) 19px, rgba(255, 214, 160, 0) 22px 37px); }
+.streaks span:nth-child(3) { background: repeating-linear-gradient(90deg, rgba(52, 61, 92, 0) 0 5px, rgba(122, 140, 190, .3) 7px, rgba(52, 61, 92, 0) 10px 29px); }
+.streaks span:nth-child(4) { filter: none; background: linear-gradient(to right, #0b1117 0%, rgba(11, 17, 23, .75) 18%, rgba(11, 17, 23, 0) 45%, rgba(11, 17, 23, 0) 70%, rgba(255, 220, 180, .12) 100%); }
+
+.contact__grid { display: grid; grid-template-columns: minmax(0, 1fr) 583px; gap: var(--s-6); align-items: stretch; }
+.contact__intro { display: flex; flex-direction: column; padding-top: var(--s-4); }
+.contact__intro .h2 { margin-top: var(--s-3); max-width: 560px; }
+.contact__intro .lead { margin-top: var(--s-4); max-width: 480px; }
+.contact__points { display: grid; gap: 12px; margin-top: var(--s-4); }
+.contact__points li { display: flex; align-items: center; gap: 12px; color: rgba(255, 255, 255, .85); font-weight: 500; }
+.contact__points .check { background: rgba(255, 156, 28, .16); color: var(--gold); }
+
+.expert-card {
+  display: grid;
+  grid-template-columns: 152px 1fr;
+  gap: 18px;
+  margin-top: auto;
+  max-width: 456px;
+  padding: 12px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-floating);
+}
+.expert-card img { width: 152px; height: 156px; object-fit: cover; object-position: 50% 20%; border-radius: 10px; }
+.expert-card__body { display: flex; flex-direction: column; padding: 4px 4px 4px 0; }
+.expert-card h3 { font-size: 19px; line-height: 1.4; font-weight: 600; letter-spacing: -.01em; }
+.expert-card__actions { display: flex; align-items: center; gap: 8px; margin-top: auto; }
+.expert-card .btn { height: 44px; padding: 0 16px; font-size: 15px; }
+.tg-btn {
+  display: grid;
+  place-items: center;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  flex: none;
+  transition: transform .45s var(--ease-spring), background-color .2s ease;
+}
+.tg-btn .icon { width: 20px; height: 20px; }
+.tg-btn:hover { transform: scale(1.08) rotate(-6deg); background: var(--navy-soft); }
+.tg-btn:active { transform: scale(.94); }
+.tg-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.form-card {
+  padding: var(--s-4);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .7), 0 2px 6px rgba(0, 0, 0, .2);
+}
+.form-card h3 { font-size: 26px; line-height: 1.3; font-weight: 600; letter-spacing: -.02em; }
+.form-card__sub { margin-top: 6px; font-size: 15px; color: var(--muted); }
+.form { display: grid; gap: 18px; margin-top: var(--s-3); }
+.field { display: grid; gap: 10px; }
+.field > label { font-size: 16px; font-weight: 500; color: var(--text); padding: 0; }
+.control { position: relative; }
+.control > .icon { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted-2); pointer-events: none; }
+.input {
+  width: 100%;
+  height: 60px;
+  padding: 0 22px 0 52px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--field);
+  font-size: 16px;
+  color: var(--text);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.input::placeholder { color: var(--muted-2); }
+.input:hover { border-color: #cfd4d8; }
+.input:focus { outline: none; border-color: var(--gold); background: var(--surface); }
+.input[aria-invalid="true"] { border-color: var(--risk-critical); }
+textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); resize: vertical; line-height: 1.5; }
+.form .btn--block { margin-top: 6px; }
+.field__opt { color: var(--muted-2); font-weight: 400; }
+.field__error { min-height: 0; margin-top: -4px; padding-left: 22px; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--risk-critical); }
+.field__error:empty { display: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form__privacy { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+.form__privacy .icon { width: 18px; height: 18px; }
+.form-success { display: none; text-align: center; padding: var(--s-6) var(--s-3); }
+.form-success .check { width: 72px; height: 72px; margin: 0 auto; }
+.form-success .check .icon { width: 34px; height: 34px; }
+.form-success h3 { margin-top: var(--s-3); }
+.form-success p { margin-top: 10px; color: var(--muted); }
+.form-card.is-sent .form, .form-card.is-sent .form-card__head { display: none; }
+.form-card.is-sent .form-success { display: block; animation: accIn .6s var(--ease-out); }
+
+/* ---------- Footer / contacts ---------- */
+.footer { position: relative; background: var(--navy-deep); color: #fff; padding: 96px 0 40px; }
+.footer__grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: var(--s-5); }
+.footer__brand img { height: 110px; width: auto; }
+.footer__brand p { margin-top: var(--s-3); max-width: 300px; color: rgba(255, 255, 255, .65); font-size: 15px; line-height: 1.6; }
+.footer h4 { font-family: var(--font-body); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255, 255, 255, .5); }
+.footer__links { display: grid; gap: 2px; margin-top: 12px; }
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  justify-self: start;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: color .2s ease, transform .4s var(--ease-spring);
+}
+.footer__links a .icon { color: var(--gold); width: 18px; height: 18px; }
+.footer__links a:hover { color: var(--gold); transform: translateX(3px); }
+.footer__links a:active { opacity: .7; }
+.footer__links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.footer__links span { padding-top: 4px; font-size: 15px; color: rgba(255, 255, 255, .65); }
+.footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); margin-top: var(--s-6); padding-top: var(--s-3); border-top: 1px solid rgba(255, 255, 255, .12); font-size: 14px; color: rgba(255, 255, 255, .5); }
+.footer__bottom a { display: inline-flex; align-items: center; min-height: 44px; transition: color .2s ease; border-radius: 4px; }
+.footer__bottom a:hover { color: var(--gold); }
+.footer__bottom a:active { opacity: .7; }
+.footer__bottom a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- Reveal ---------- */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease-out), transform .9s var(--ease-out); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease-out), transform .8s var(--ease-spring); }
+.reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: .07s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: .14s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: .21s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: .28s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: .35s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: .42s; }
+.reveal-stagger.is-visible > *:nth-child(8) { transition-delay: .49s; }
+
+.hero-in { opacity: 0; transform: translateY(24px); animation: heroIn .9s var(--ease-out) forwards; }
+.hero-in--2 { animation-delay: .12s; }
+.hero-in--3 { animation-delay: .24s; }
+.hero-in--4 { animation-delay: .36s; }
+.hero-in--5 { animation-delay: .5s; }
+@keyframes heroIn { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .reveal, .reveal-stagger > *, .hero-in { opacity: 1; transform: none; }
+  .marquee__track { animation: none; }
+  .t-step__card { opacity: 1; transform: none; }
+}
+
+/* ---------- Mobile CTA bar ---------- */
+.mobile-cta { display: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1320px) {
+  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); }
+  .nav { gap: 22px; }
+}
+@media (max-width: 1180px) {
+  :root { --s-section: 96px; }
+  .nav { display: none; }
+  .menu-toggle { display: grid; }
+  .site-header__bar { gap: 12px; }
+  .site-header__bar .call-pill { margin-left: auto; }
+  .hero__inner { grid-template-columns: minmax(0, 1fr); }
+  .hero-card { max-width: 440px; }
+  .needs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .format-card { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: var(--s-4); padding-left: var(--s-4); }
+  .format-card--reverse { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); padding: 16px var(--s-4) 16px 16px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); }
+  .faq { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+  .contact__grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-5); }
+  .contact__intro { padding-top: 0; }
+  .expert-card { margin-top: var(--s-5); }
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust__inner { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .h2 { font-size: 44px; line-height: 50px; }
+  .hero h1 { font-size: 54px; line-height: 60px; }
+  .split { grid-template-columns: minmax(0, 1fr); }
+  .split__media { min-height: 640px; }
+  .format-card, .format-card--reverse { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 16px; }
+  .format-card__body { padding: 16px; }
+  .format-card__media { min-height: 320px; order: -1; }
+  .consult-card { position: relative; right: auto; bottom: auto; width: auto; margin: 380px 16px 16px; }
+  .about-media { min-height: 0; }
+  .about-media__caption { display: none; }
+  .needs-grid { gap: 12px; }
+  .need-card { min-height: 0; display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 16px; align-content: start; padding: 22px; }
+  .need-card:hover { transform: none; }
+  .need-card__icon { width: 44px; height: 44px; border-radius: 12px; grid-row: span 2; }
+  .need-card h3 { margin: 0; padding-top: 0; font-size: 19px; line-height: 26px; }
+  .need-card p { margin-top: 4px; font-size: 15px; }
+}
+@media (max-width: 720px) {
+  .needs-grid { grid-template-columns: minmax(0, 1fr); }
+
+  /* Sticky call-to-action for phones and small tablets */
+  .footer { padding-bottom: 120px; }
+  .mobile-cta {
+    position: fixed;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    display: flex;
+    gap: 8px;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 8px;
+    border-radius: var(--r-pill);
+    background: var(--surface);
+    box-shadow: var(--shadow-floating);
+    transform: translateY(calc(100% + 24px));
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .5s var(--ease-out), opacity .3s ease, visibility 0s linear .5s;
+  }
+  .mobile-cta.is-visible { transform: none; opacity: 1; visibility: visible; transition: transform .5s var(--ease-out), opacity .3s ease; }
+  .mobile-cta .btn { flex: 1; min-width: 0; height: 56px; min-height: 56px; padding: 0 16px; gap: 8px; white-space: nowrap; font-size: 16px; }
+  .mobile-cta .btn__short { display: none; }
+  .mobile-cta .tg-btn { width: 56px; height: 56px; }
+  .mobile-cta .tg-btn .icon { width: 22px; height: 22px; }
+}
+@media (max-width: 640px) {
+  :root { --gutter: 16px; --s-section: 72px; --s-6: 40px; --s-5: 32px; }
+  body { font-size: 16px; }
+  .h2 { font-size: 32px; line-height: 38px; }
+  .h2 br { display: none; }
+  .lead { font-size: 17px; }
+  .section-head { gap: 16px; }
+
+  /* Buttons: wrap instead of overflowing, full width for easy tapping */
+  .btn { white-space: normal; height: auto; min-height: 56px; padding: 14px 24px; line-height: 1.3; text-align: center; }
+  .btn--lg { min-height: 58px; font-size: 16px; }
+  .btn--block { min-height: 64px; font-size: 17px; }
+  .needs-cta { flex-direction: column; gap: 14px; }
+  .needs-cta .btn, .format-card .btn, .about-card .btn, .faq__intro .btn, .steps-foot .btn, .consult-card .btn, .cta-banner .btn { width: 100%; align-self: stretch; }
+
+  /* Header */
+  .site-header__bar { height: 68px; padding: 0 8px 0 12px; }
+  .logo img { height: 48px; }
+  .call-pill { width: 48px; height: 48px; padding: 0; justify-content: center; }
+  .call-pill span:last-child { display: none; }
+  .call-pill__icon { width: 48px; height: 48px; }
+
+  /* Hero */
+  .hero { min-height: 0; }
+  .hero__inner { padding-top: 116px; padding-bottom: 32px; gap: var(--s-4); }
+  .hero__badge { font-size: 12px; }
+  .hero h1 { font-size: 38px; line-height: 44px; margin-top: 20px; }
+  .hero__text { margin-top: 18px; font-size: 16px; line-height: 1.6; }
+  .hero__actions { flex-direction: column; margin-top: var(--s-4); }
+  .hero__actions .btn { width: 100%; }
+  .hero__note { align-items: flex-start; font-size: 13px; line-height: 1.5; }
+  .hero__note .icon { margin-top: 1px; }
+  .hl { white-space: normal; }
+  .hero-card { max-width: none; border-radius: 24px; }
+  .hero-card__body { border-radius: 18px; }
+  .hero-card__top { padding: 20px 20px 18px; }
+  .hero-card__foot { padding: 16px 20px 20px; }
+
+  /* Trust strip */
+  .trust { padding-top: 56px; }
+  .trust__title { font-size: 19px; line-height: 28px; }
+  .stat-tile { height: 80px; padding: 0 20px; }
+  .stat-tile b { font-size: 26px; }
+
+  /* Who needs */
+  .needs-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .need-card { padding: 20px; }
+
+  /* Formats */
+  .row-head { flex-direction: column; align-items: flex-start; }
+  .formats-list { gap: 16px; }
+  .format-card__media { min-height: 220px; }
+  .format-card__body { padding: 20px 8px 8px; }
+  .chip { height: 48px; padding: 0 16px; font-size: 22px; }
+  .chip small { display: none; }
+  .format-card h3 { margin-top: 18px; font-size: 24px; line-height: 30px; }
+  .format-card p { font-size: 16px; }
+  .format-card .tags { margin-bottom: 24px; }
+  .tags li { font-size: 13px; }
+  .callout { padding: 16px 18px; font-size: 15px; }
+
+  /* CTA banner */
+  .cta { padding-bottom: var(--s-section); }
+  .cta-banner { min-height: 0; }
+  .cta-banner__content { padding: 36px 20px; }
+  .cta-banner p { font-size: 16px; }
+  .cta-banner .hero__actions { margin-top: var(--s-4); }
+  .cta-banner__shade { background: linear-gradient(to top, rgba(6, 25, 42, .96) 30%, rgba(6, 25, 42, .72) 100%); }
+
+  /* Steps timeline */
+  .timeline { --node: 40px; gap: 14px; }
+  .t-step { gap: 12px; }
+  .t-step__node { margin-top: 18px; font-size: 14px; }
+  .t-step__node::after { inset: -6px; }
+  .t-step__card { padding: 20px 18px 20px 22px; transform: translateY(16px); opacity: .8; }
+  .t-step__icon { display: none; }
+  .t-step__kicker { font-size: 12px; }
+  .t-step__card h3 { font-size: 21px; line-height: 27px; }
+  .t-step__body p { font-size: 15px; line-height: 1.6; }
+  .t-step__body .bullets { grid-template-columns: minmax(0, 1fr); }
+  .bullets li { font-size: 14px; }
+  .t-step__foot { margin-top: 18px; padding-top: 14px; font-size: 14px; align-items: flex-start; }
+  .steps-foot { margin-top: var(--s-4); gap: 20px; }
+  .steps-foot .note { border-radius: var(--r-md); padding: 14px 16px; font-size: 15px; align-items: flex-start; }
+
+  /* What you get: photo on top, risk card below it */
+  .split { gap: var(--s-4); }
+  .split__media { min-height: 0; overflow: visible; box-shadow: none; border-radius: 0; }
+  .split__media .media-img, .split__media .media-tint, .split__media .media-shade { height: 340px; bottom: auto; border-radius: var(--r-lg); }
+  .split__media .media-img { object-position: 50% 20%; }
+  .risk-card { position: relative; left: auto; right: auto; bottom: auto; margin: 300px 10px 0; padding: 18px; }
+  .risk-list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .feature-list { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: var(--s-4); }
+  .feature-list strong { font-size: 18px; }
+  .fineprint { margin-top: var(--s-4); }
+
+  /* Why Alfa Gold */
+  .about-grid { gap: 16px; margin-top: var(--s-4); }
+  .about-card { padding: 24px 20px; }
+  .stat-row { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 0 0 20px; }
+  .stat-row + .stat-row { padding-top: 20px; }
+  .stat-row b { font-size: 52px; }
+  .stat-row b sup { font-size: 24px; }
+  .stat-row span { padding-top: 0; font-size: 15px; }
+  .about-card .checklist li { font-size: 15px; }
+  .consult-card { margin: 280px 10px 10px; padding: 20px; }
+  .consult-card h3 { font-size: 21px; line-height: 28px; }
+  .consult-card p { font-size: 15px; }
+
+  /* Cost */
+  .acc summary { min-height: 64px; font-size: 17px; padding: 14px 16px; }
+  .acc .num { width: 28px; height: 28px; margin-right: 12px; font-size: 12px; }
+  .acc__body { padding: 0 16px 18px 56px; font-size: 15px; }
+
+  /* Enquiry */
+  .contact { padding-top: var(--s-section); }
+  .contact__points li { font-size: 15px; align-items: flex-start; }
+  .form-card { padding: 24px 18px; }
+  .form-card h3 { font-size: 23px; }
+  .input { height: 56px; }
+  .expert-card { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 10px; }
+  .expert-card img { width: 88px; height: 112px; }
+  .expert-card__body { padding: 2px 0; }
+  .expert-card h3 { font-size: 16px; line-height: 1.35; }
+  .expert-card__actions { margin-top: 12px; }
+  .expert-card .btn { flex: 1; min-width: 0; min-height: 44px; height: auto; padding: 10px 14px; font-size: 14px; }
+
+  /* Footer */
+  .footer { padding: 64px 0 112px; }
+  .footer__grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-4); }
+  .footer__brand img { height: 90px; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 0; margin-top: var(--s-5); }
+}
+@media (max-width: 400px) {
+  .mobile-cta .btn .icon { display: none; }
+}
+@media (max-width: 374px) {
+  :root { --gutter: 14px; }
+  .need-card { grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; padding: 18px 16px; }
+  .need-card__icon { width: 40px; height: 40px; }
+  .need-card h3 { font-size: 17px; line-height: 24px; }
+  .btn { white-space: nowrap; padding-left: 16px; padding-right: 16px; font-size: 15px; gap: 8px; }
+  .btn .icon { width: 16px; height: 16px; }
+  .about-card, .consult-card { padding-left: 16px; padding-right: 16px; }
+  .form-card { padding-left: 14px; padding-right: 14px; }
+  .h2 { font-size: 28px; line-height: 34px; }
+  .hero h1 { font-size: 33px; line-height: 39px; }
+  .logo img { height: 44px; }
+  .t-step__card h3 { font-size: 19px; line-height: 25px; }
+  .chip { font-size: 20px; }
+  .acc__body { padding-left: 16px; }
+@media (max-width: 340px) {
+  main .btn .icon { display: none; }
+  .mobile-cta .btn__full { display: none; }
+  .mobile-cta .btn__short { display: inline; }
+  .expert-card { grid-template-columns: minmax(0, 1fr); }
+  .expert-card img { display: none; }
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" class="sr-only" aria-hidden="true">
+  <symbol id="i-mark" viewBox="0 0 18 18"><path d="M3.2 1.5a5.8 5.8 0 0 0 11.6 0" fill="none" stroke="currentColor" stroke-width="3.2"/><path d="M3.2 16.5a5.8 5.8 0 0 1 11.6 0" fill="none" stroke="currentColor" stroke-width="3.2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4.5M12 8h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.7-2.5 2.3-2.5 3.8M12 17h.01"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24"><path d="M17 3l4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-diff" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="16" rx="1.5"/><rect x="14" y="4" width="7" height="16" rx="1.5"/><path d="M6.5 9v5M17.5 8v2M17.5 14v2"/></symbol>
+  <symbol id="i-mail-alert" viewBox="0 0 24 24"><path d="M21 12V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8"/><path d="m3 7 9 6 9-6M19 16v3M19 22h.01"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 24 24"><path d="M11 17l2 2a1.4 1.4 0 0 0 2-2"/><path d="m14 14 2.5 2.5a1.4 1.4 0 0 0 2-2l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1.4 1.4 0 0 1-2-2l2.8-2.8a5.1 5.1 0 0 1 6.1-.8l.5.3a3 3 0 0 0 2.2.3L21 6"/><path d="m21 3 1 11h-2M3 3 2 14l6.5 6.5a1.4 1.4 0 0 0 2-2M3 4h8"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3.5 3.5 0 0 0 6 0L5 7zM19 7l-3 7a3.5 3.5 0 0 0 6 0l-3-7z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M12 14l4-4"/><path d="M3.3 17a9 9 0 1 1 17.4 0"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-sort" viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M10 18h4"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 1.7-1.3a4 4 0 0 0-5-5L3 11l8-8 3 3.3z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 26 20"><path d="M0 20V11.4C0 4.9 3 1.1 9.4 0l1 2.8C7 4 5.5 6.2 5.3 9.5H10V20H0zm15 0V11.4C15 4.9 18 1.1 24.4 0l1 2.8C22 4 20.5 6.2 20.3 9.5H25V20H15z"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.7-3.5-2.3 2.2c-.2.2-.5.4-1 .4l.3-4.8 8.7-7.9c.4-.3-.1-.5-.6-.2L6.8 12.8l-4.6-1.4c-1-.3-1-1 .2-1.5l18-6.9c.9-.3 1.6.2 1.5 1.3z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v4H8v7h4v-7h3l.5-4H12V7.8c0-.5.3-.8.8-.8H15V3z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8z"/><path d="m10 15 5-3-5-3v6z"/></symbol>
+</svg>
+
+<!-- ================= Header ================= -->
+<header class="site-header" id="top">
+  <div class="site-header__bar">
+    <a class="logo" href="#top" aria-label="Alfa Gold — на початок сторінки">
+      <img src="brand_assets/logo-navy.png" alt="Alfa Gold Accounting Service" width="216" height="300">
+    </a>
+    <nav class="nav" aria-label="Основна навігація">
+      <a href="#who">Кому потрібен</a>
+      <a href="#formats">Формати</a>
+      <a href="#process">Як проходить</a>
+      <a href="#result">Результат</a>
+      <a href="#price">Вартість</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <a class="call-pill" href="tel:+380738070990" aria-label="Зателефонувати +38 073 807 09 90">
+      <span class="call-pill__icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+      <span>+38 (073) 807 09 90</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Відкрити меню">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Мобільна навігація">
+    <a href="#who">Кому потрібен аудит</a>
+    <a href="#formats">Формати аудиту</a>
+    <a href="#process">Як проходить</a>
+    <a href="#result">Що ти отримаєш</a>
+    <a href="#price">Вартість</a>
+    <a href="#contacts">Контакти</a>
+    <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= Hero ================= -->
+<section class="hero grain" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true">
+    <img src="images/hero.jpg" alt="" width="1376" height="768" fetchpriority="high">
+    <div class="hero__tint"></div>
+    <div class="hero__shade"></div>
+  </div>
+  <div class="container hero__inner">
+    <div>
+      <p class="hero__badge hero-in"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>Експрес-аудит обліку ФОП і ТОВ</p>
+      <h1 id="hero-title" class="hero-in hero-in--2">Перевіримо, чи правильно ведеться <span class="hl">облік</span> твого бізнесу</h1>
+      <p class="hero__text hero-in hero-in--3">Проведемо експрес-аудит бухгалтерського та податкового обліку ФОП або ТОВ, визначимо помилки й ризики та підготуємо експертний висновок із конкретними рекомендаціями.</p>
+      <div class="hero__actions hero-in hero-in--4">
+        <a class="btn btn--lg" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a class="btn btn--lg btn--ghost" href="#process">Як проходить аудит</a>
+      </div>
+      <p class="hero__note hero-in hero-in--5"><svg class="icon"><use href="#i-info"/></svg>Вартість і строки визначаємо після попередньої оцінки обсягу обліку та періоду перевірки.</p>
+    </div>
+
+    <aside class="hero-card hero-in hero-in--5" aria-label="Що ти зрозумієш після аудиту">
+      <div class="hero-card__body">
+        <div class="hero-card__top">
+          <p class="hero-card__label">Результат експрес-аудиту</p>
+          <p class="hero-card__title">Після аудиту ти зрозумієш:</p>
+          <ul class="checklist">
+            <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>чи відповідають дані обліку поданій звітності</li>
+            <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>чи правильно розраховані податки</li>
+            <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>які помилки та ризики вже є</li>
+            <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>що може призвести до штрафів або донарахувань</li>
+            <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>що потрібно виправити насамперед</li>
+          </ul>
+        </div>
+        <div class="hero-card__foot">
+          <svg class="quote-mark icon--fill"><use href="#i-quote"/></svg>
+          <p class="hero-card__quote">Відсутність податкового боргу не означає, що в обліку немає помилок.</p>
+          <div class="hero-card__meta">
+            <span class="avatars"><img src="brand_assets/avatar-1.jpg" alt="" width="32" height="32"><img src="brand_assets/avatar-2.jpg" alt="" width="32" height="32"></span>
+            Експерти Alfa Gold
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= Trust strip ================= -->
+<section class="trust" aria-label="Alfa Gold у цифрах">
+  <div class="container trust__inner">
+    <p class="trust__title reveal">Alfa Gold — бухгалтерський та податковий супровід бізнесу понад 18 років.</p>
+    <div class="marquee reveal">
+      <div class="marquee__track">
+        <div class="stat-tile"><b>18+</b><span>років досвіду<br>в обліку та податках</span></div>
+        <div class="stat-tile"><b>1000+</b><span>компаній на повному<br>обслуговуванні</span></div>
+        <div class="stat-tile"><b>100+</b><span>податкових перевірок<br>успішно пройдено</span></div>
+        <div class="stat-tile"><b>500+</b><span>податкових накладних<br>розблоковано</span></div>
+        <div class="stat-tile"><b>1+ млрд</b><span>грн річний обіг<br>клієнтів</span></div>
+        <div class="stat-tile" aria-hidden="true"><b>18+</b><span>років досвіду<br>в обліку та податках</span></div>
+        <div class="stat-tile" aria-hidden="true"><b>1000+</b><span>компаній на повному<br>обслуговуванні</span></div>
+        <div class="stat-tile" aria-hidden="true"><b>100+</b><span>податкових перевірок<br>успішно пройдено</span></div>
+        <div class="stat-tile" aria-hidden="true"><b>500+</b><span>податкових накладних<br>розблоковано</span></div>
+        <div class="stat-tile" aria-hidden="true"><b>1+ млрд</b><span>грн річний обіг<br>клієнтів</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Who needs ================= -->
+<section class="section" id="who" aria-labelledby="who-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Кому потрібен аудит</span>
+      <h2 class="h2" id="who-title">Експрес-аудит варто провести, якщо ти…</h2>
+    </div>
+    <div class="needs-grid reveal-stagger" data-no-orphans>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-help"/></svg></span>
+        <h3>Сумніваєшся в обліку</h3>
+        <p>Не впевнений у правильності обліку або давно не перевіряв роботу бухгалтера.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-swap"/></svg></span>
+        <h3>Змінюєш бухгалтера</h3>
+        <p>Переходиш до нового бухгалтера чи бухгалтерської компанії.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-trend"/></svg></span>
+        <h3>Бізнес зростає</h3>
+        <p>Збільшив обороти, кількість операцій або працівників.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-layers"/></svg></span>
+        <h3>Нові режими й операції</h3>
+        <p>Почав працювати з ПДВ, <span class="nowrap">РРО/ПРРО</span>, ЗЕД чи виробництвом.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-diff"/></svg></span>
+        <h3>Бачиш розбіжності</h3>
+        <p>Дані звітності не збігаються з обліковою системою.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-mail-alert"/></svg></span>
+        <h3>Отримав запит від ДПС</h3>
+        <p>Надійшов запит або вимога від контролюючого органу.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-handshake"/></svg></span>
+        <h3>Готуєш угоду</h3>
+        <p>Готуєш бізнес до продажу, інвестицій чи кредитування.</p>
+      </article>
+      <article class="need-card">
+        <span class="need-card__icon"><svg class="icon"><use href="#i-scale"/></svg></span>
+        <h3>Виправляти чи відновлювати облік?</h3>
+        <p>Хочеш зрозуміти, чи достатньо виправлень, чи потрібне відновлення обліку.</p>
+      </article>
+    </div>
+    <div class="needs-cta reveal">
+      <p>Впізнав свою ситуацію?</p>
+      <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Formats ================= -->
+<section class="section section--flush" id="formats" aria-labelledby="formats-title">
+  <div class="container">
+    <div class="row-head reveal">
+      <div class="section-head">
+        <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Обери формат</span>
+        <h2 class="h2" id="formats-title">Аудит ФОП або ТОВ — <br>окрема методика для кожного</h2>
+      </div>
+    </div>
+
+    <div class="formats-list reveal-stagger">
+      <article class="format-card">
+        <div class="format-card__body">
+          <span class="chip">ФОП <small>фізична особа-підприємець</small></span>
+          <h3>Експрес-аудит ФОП</h3>
+          <p>Перевіряємо реєстраційні дані, систему оподаткування, звітність і сплату податків — з урахуванням ризиків саме твого виду діяльності.</p>
+          <ul class="tags" aria-label="Що перевіряємо у ФОП">
+            <li>Реєстраційні дані та КВЕДи</li>
+            <li>Система оподаткування</li>
+            <li>Доходи та ліміти</li>
+            <li>Звітність</li>
+            <li>Податки та ЄСВ</li>
+            <li>РРО/ПРРО</li>
+            <li>Способи приймання оплат</li>
+            <li>Працівники</li>
+          </ul>
+          <a class="btn" href="#order">Замовити аудит ФОП <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+        <div class="format-card__media">
+          <img class="media-img" src="images/fop.jpg" alt="Підприємиця перевіряє продажі на касовому терміналі у своїй кав’ярні" width="1000" height="747" loading="lazy">
+          <div class="media-tint"></div>
+          <div class="media-shade"></div>
+        </div>
+      </article>
+
+      <article class="format-card format-card--reverse">
+        <div class="format-card__body">
+          <span class="chip">ТОВ <small>товариство з обмеженою відповідальністю</small></span>
+          <h3>Експрес-аудит ТОВ</h3>
+          <p>Перевіряємо стан бухгалтерської бази, закриття періодів, ключові рахунки та податкові розрахунки компанії.</p>
+          <ul class="tags" aria-label="Що перевіряємо у ТОВ">
+            <li>Бухгалтерська база</li>
+            <li>Закриття періодів</li>
+            <li>Банк і каса</li>
+            <li>Контрагенти й заборгованості</li>
+            <li>Запаси та основні засоби</li>
+            <li>Доходи, витрати, собівартість</li>
+            <li>Фінансовий результат</li>
+            <li>ПДВ</li>
+            <li>Податок на прибуток або ЄП</li>
+            <li>Зарплата й кадри</li>
+            <li>ЗЕД</li>
+          </ul>
+          <a class="btn" href="#order">Замовити аудит ТОВ <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+        <div class="format-card__media">
+          <img class="media-img" src="images/tov.jpg" alt="Фінансова директорка та головний бухгалтер аналізують звітність компанії" width="1000" height="747" loading="lazy">
+          <div class="media-tint"></div>
+          <div class="media-shade"></div>
+        </div>
+      </article>
+    </div>
+
+    <p class="callout reveal"><svg class="icon"><use href="#i-info"/></svg><span><strong>Відсутність податкового боргу не означає, що в обліку немає помилок.</strong> Частина ризиків проявляється лише під час перевірки або зіставлення даних за різні періоди.</span></p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-banner grain reveal">
+      <div class="cta-banner__media" aria-hidden="true">
+        <img src="images/cta.jpg" alt="" width="1584" height="672" loading="lazy">
+        <div class="hero__tint"></div>
+        <div class="cta-banner__shade"></div>
+      </div>
+      <div class="cta-banner__content">
+        <span class="eyebrow eyebrow--light"><svg class="mark"><use href="#i-mark"/></svg>Не відкладай</span>
+        <h2 class="h2" id="cta-title">Не чекай, поки помилки виявить <em>податкова</em></h2>
+        <p>Перевір стан обліку зараз, отримай незалежний експертний висновок і зрозумій, що потрібно зробити для захисту бізнесу.</p>
+        <div class="hero__actions">
+          <a class="btn btn--lg" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn btn--lg btn--ghost" href="https://t.me/alfa_gold_consult" target="_blank" rel="noopener"><svg class="icon icon--fill"><use href="#i-telegram"/></svg>Написати в Telegram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Process ================= -->
+<section class="section dark grain" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow eyebrow--light"><svg class="mark"><use href="#i-mark"/></svg>Як проходить експрес-аудит</span>
+      <h2 class="h2" id="process-title">П’ять кроків від заявки <br>до експертного висновку</h2>
+    </div>
+
+    <ol class="timeline" id="timeline">
+      <li class="timeline__track" aria-hidden="true"><span class="timeline__fill"></span><span class="timeline__tip"></span></li>
+      <li class="t-step">
+        <span class="t-step__node" aria-hidden="true"><span>01</span></span>
+        <article class="t-step__card">
+          <div class="t-step__head">
+            <div>
+              <span class="t-step__kicker">Крок 01 <span>/ 05</span></span>
+              <h3>Попередня консультація</h3>
+            </div>
+            <span class="t-step__icon"><svg class="icon"><use href="#i-chat"/></svg></span>
+          </div>
+          <div class="t-step__body">
+            <p>З’ясовуємо форму бізнесу, систему оподаткування, вид діяльності, період перевірки та причину звернення.</p>
+          </div>
+          <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Безкоштовно, без зобов’язань</p>
+        </article>
+      </li>
+      <li class="t-step">
+        <span class="t-step__node" aria-hidden="true"><span>02</span></span>
+        <article class="t-step__card">
+          <div class="t-step__head">
+            <div>
+              <span class="t-step__kicker">Крок 02 <span>/ 05</span></span>
+              <h3>Оцінка обсягу</h3>
+            </div>
+            <span class="t-step__icon"><svg class="icon"><use href="#i-target"/></svg></span>
+          </div>
+          <div class="t-step__body">
+            <p>Визначаємо ділянки перевірки, строки та вартість роботи. Ти заздалегідь знаєш, що саме перевіримо і скільки це коштуватиме.</p>
+          </div>
+          <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Фіксуємо обсяг, строки й вартість</p>
+        </article>
+      </li>
+      <li class="t-step">
+        <span class="t-step__node" aria-hidden="true"><span>03</span></span>
+        <article class="t-step__card">
+          <div class="t-step__head">
+            <div>
+              <span class="t-step__kicker">Крок 03 <span>/ 05</span></span>
+              <h3>Збір інформації</h3>
+            </div>
+            <span class="t-step__icon"><svg class="icon"><use href="#i-folder"/></svg></span>
+          </div>
+          <div class="t-step__body">
+            <p>Формуємо індивідуальний перелік документів і погоджуємо формат доступу до облікової системи. Залежно від завдання можуть знадобитися:</p>
+            <ul class="bullets">
+              <li>доступ до облікової системи та електронного кабінету</li>
+              <li>оборотно-сальдові відомості й банківські виписки</li>
+              <li>податкова та фінансова звітність</li>
+              <li>договори й первинні документи</li>
+              <li>кадрові та зарплатні документи</li>
+              <li>інформація про РРО/ПРРО, ЗЕД та нестандартні операції</li>
+            </ul>
+          </div>
+          <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Перелік документів готуємо ми</p>
+        </article>
+      </li>
+      <li class="t-step">
+        <span class="t-step__node" aria-hidden="true"><span>04</span></span>
+        <article class="t-step__card">
+          <div class="t-step__head">
+            <div>
+              <span class="t-step__kicker">Крок 04 <span>/ 05</span></span>
+              <h3>Перевірка обліку</h3>
+            </div>
+            <span class="t-step__icon"><svg class="icon"><use href="#i-search"/></svg></span>
+          </div>
+          <div class="t-step__body">
+            <p>Аналізуємо облік, звітність, податки та документи в межах погодженого завдання — не лише звітність, а й облікову систему та первинку.</p>
+          </div>
+          <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Окремі методики для ФОП і ТОВ</p>
+        </article>
+      </li>
+      <li class="t-step">
+        <span class="t-step__node" aria-hidden="true"><span>05</span></span>
+        <article class="t-step__card">
+          <div class="t-step__head">
+            <div>
+              <span class="t-step__kicker">Крок 05 <span>/ 05</span></span>
+              <h3>Висновок і консультація</h3>
+            </div>
+            <span class="t-step__icon"><svg class="icon"><use href="#i-file"/></svg></span>
+          </div>
+          <div class="t-step__body">
+            <p>Готуємо експертний висновок і презентуємо результати: пояснюємо проблеми, можливі наслідки та послідовність подальших дій.</p>
+          </div>
+          <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Експертний висновок + розбір з експертом</p>
+        </article>
+      </li>
+    </ol>
+
+    <div class="steps-foot reveal">
+      <p class="note"><svg class="icon"><use href="#i-info"/></svg>Не потрібно самостійно готувати всі документи. Після першої консультації ми надамо перелік, необхідний саме для твого аудиту.</p>
+      <a class="btn btn--lg" href="#order">Записатися на консультацію <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Result ================= -->
+<section class="section" id="result" aria-labelledby="result-title">
+  <div class="container split">
+    <div class="split__media reveal">
+      <img class="media-img" src="images/report.jpg" alt="Експертка Alfa Gold презентує клієнту висновок аудиту з позначеними рівнями ризиків" width="896" height="1200" loading="lazy">
+      <div class="media-tint"></div>
+      <div class="media-shade"></div>
+      <div class="risk-card">
+        <h4>Ризики розподіляємо за рівнями</h4>
+        <ul class="risk-list">
+          <li><span class="risk-tag risk-tag--critical">Критичний</span>може спричинити значні донарахування, штрафи або втрату статусу платника</li>
+          <li><span class="risk-tag risk-tag--high">Високий</span>потребує термінового виправлення</li>
+          <li><span class="risk-tag risk-tag--medium">Середній</span>може вплинути на облік або звітність</li>
+          <li><span class="risk-tag risk-tag--low">Низький</span>не створює значної загрози, але потребує впорядкування</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="split__content reveal">
+      <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Що ти отримаєш</span>
+      <h2 class="h2" id="result-title">Не просто перелік помилок, а план дій</h2>
+      <p class="lead">Ти отримаєш зрозумілу картину стану обліку та конкретний план дій. За результатами аудиту:</p>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-gauge"/></svg></span><span><strong>Оцінка стану</strong> обліку й податків</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-list"/></svg></span><span><strong>Перелік помилок</strong> і невідповідностей</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-alert"/></svg></span><span><strong>Наслідки</strong> для бізнесу</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-wrench"/></svg></span><span><strong>Рекомендації</strong> з виправлення</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-sort"/></svg></span><span><strong>Пріоритети</strong> подальших дій</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-search"/></svg></span><span><strong>Питання</strong> для додаткової перевірки</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-scale"/></svg></span><span><strong>Висновок:</strong> виправлення чи відновлення</span></li>
+        <li><span class="feature-list__icon"><svg class="icon"><use href="#i-chat"/></svg></span><span><strong>Консультація</strong> з розбором результатів</span></li>
+      </ul>
+      <p class="fineprint"><svg class="icon"><use href="#i-info"/></svg><span>Експрес-аудит не включає внесення виправлень, відновлення обліку, створення відсутніх документів, подання уточнюючої звітності та супровід перевірок. Ці роботи можна замовити окремо після отримання висновку.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Why Alfa Gold ================= -->
+<section class="section section--flush" id="why" aria-labelledby="why-title">
+  <div class="container">
+    <div class="about-head reveal">
+      <div>
+        <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Чому Alfa Gold</span>
+        <h2 class="h2" id="why-title">Аудит від команди, яка щодня <br>веде облік сотень компаній</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="stat-row"><b>18<sup>+</sup></b><span>років досвіду у бухгалтерському та податковому обліку</span></div>
+        <div class="stat-row"><b>1000<sup>+</sup></b><span>компаній і ФОП на повному обслуговуванні</span></div>
+        <ul class="checklist">
+          <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Практична робота з ФОП і компаніями різних напрямів</li>
+          <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Окремі методики перевірки для ФОП і ТОВ</li>
+          <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Аналіз не лише звітності, а й облікової системи та документів</li>
+          <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Зрозумілий для власника експертний висновок</li>
+          <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Конкретні рекомендації та план подальших дій</li>
+        </ul>
+        <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+      </div>
+
+      <div class="about-media reveal">
+        <img class="media-img" src="brand_assets/founder-2.jpg" alt="Засновниці Alfa Gold Олександра Герасименко та Оксана Марченко" width="1400" height="1225" loading="lazy">
+        <div class="media-tint"></div>
+        <div class="media-shade"></div>
+        <p class="about-media__caption"><b>Олександра Герасименко та Оксана Марченко</b>засновниця та директорка Alfa Gold</p>
+        <div class="consult-card">
+          <div class="consult-card__top">
+            <span class="avatars avatars--lg"><img src="brand_assets/avatar-1.jpg" alt="" width="44" height="44"><img src="brand_assets/avatar-2.jpg" alt="" width="44" height="44"></span>
+            <span class="online">Експерти на зв’язку</span>
+          </div>
+          <h3>Потрібна швидка консультація?</h3>
+          <p>Розкажи про свій бізнес — оцінимо обсяг перевірки та підкажемо, з чого почати.</p>
+          <a class="btn" href="#order">Поговорити з експертом <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Price ================= -->
+<section class="section section--flush" id="price" aria-labelledby="price-title">
+  <div class="container faq">
+    <div class="faq__intro reveal">
+      <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Вартість</span>
+      <h2 class="h2" id="price-title">Від чого залежить вартість аудиту</h2>
+      <p class="lead">Ми не називаємо «ціну з повітря». Вартість і строки розраховуємо після попередньої оцінки обсягу обліку та періоду перевірки — і фіксуємо до початку роботи.</p>
+      <a class="btn btn--lg" href="#order">Розрахувати вартість аудиту <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+    </div>
+    <div class="faq__list reveal-stagger">
+      <details class="acc" name="cost-factors" open>
+        <summary><span><span class="num">01</span>Форма бізнесу</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">ФОП чи ТОВ — для кожної форми діє окрема методика перевірки та свій набір ділянок обліку.</div>
+      </details>
+      <details class="acc" name="cost-factors">
+        <summary><span><span class="num">02</span>Система оподаткування</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">Єдиний податок чи загальна система — від цього залежить перелік податків і звітів, які потрібно перевірити.</div>
+      </details>
+      <details class="acc" name="cost-factors">
+        <summary><span><span class="num">03</span>Період перевірки</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">Чим довший період, тим більше звітних періодів, операцій і документів потрібно проаналізувати.</div>
+      </details>
+      <details class="acc" name="cost-factors">
+        <summary><span><span class="num">04</span>Кількість операцій і працівників</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">Обсяг банківських операцій, первинних документів, нарахувань зарплати та кадрових документів.</div>
+      </details>
+      <details class="acc" name="cost-factors">
+        <summary><span><span class="num">05</span>ПДВ, РРО/ПРРО, ЗЕД, виробництво</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">Кожен із цих напрямів додає окремі ділянки перевірки та специфічні ризики.</div>
+      </details>
+      <details class="acc" name="cost-factors">
+        <summary><span><span class="num">06</span>Стан бази та повнота документів</span><svg class="icon chev"><use href="#i-chev"/></svg></summary>
+        <div class="acc__body">Якщо облік вівся з пропусками або документи неповні, перевірка потребує більше часу.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= Order form ================= -->
+<section class="contact dark grain" id="order" aria-labelledby="order-title">
+  <div class="streaks" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+  <div class="container contact__grid">
+    <div class="contact__intro reveal">
+      <span class="eyebrow eyebrow--light"><svg class="mark"><use href="#i-mark"/></svg>Заявка на аудит</span>
+      <h2 class="h2" id="order-title">Розрахуй вартість експрес-аудиту</h2>
+      <p class="lead">Після отримання заявки наш експерт зв’яжеться з тобою, поставить уточнювальні запитання та повідомить вартість, строки й подальші кроки.</p>
+      <ul class="contact__points">
+        <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Попередня консультація без зобов’язань</li>
+        <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Вартість і строки — до початку роботи</li>
+        <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Перелік документів готуємо ми</li>
+      </ul>
+
+      <div class="expert-card">
+        <img src="brand_assets/founder-2.jpg" alt="Експерти Alfa Gold" width="152" height="156" loading="lazy">
+        <div class="expert-card__body">
+          <h3>Хочеш швидше? Поговори з експертом напряму</h3>
+          <div class="expert-card__actions">
+            <a class="btn" href="tel:+380738070990">Зателефонувати <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+            <a class="tg-btn" href="https://t.me/alfa_gold_consult" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg class="icon icon--fill"><use href="#i-telegram"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal" id="form-card">
+      <div class="form-card__head">
+        <h3>Заявка на експрес-аудит</h3>
+        <p class="form-card__sub">Залиш контакти — експерт передзвонить і все уточнить</p>
+      </div>
+      <form class="form" id="order-form" novalidate>
+        <div class="field">
+          <label for="f-name">Ім’я</label>
+          <div class="control">
+            <svg class="icon"><use href="#i-user"/></svg>
+            <input class="input" id="f-name" name="name" type="text" placeholder="Як до тебе звертатися" autocomplete="given-name" maxlength="40" aria-describedby="f-name-err" required>
+          </div>
+          <p class="field__error" id="f-name-err" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-phone">Номер телефону</label>
+          <div class="control">
+            <svg class="icon"><use href="#i-phone"/></svg>
+            <input class="input" id="f-phone" name="phone" type="tel" placeholder="+38 (0__) ___ __ __" autocomplete="tel-national" inputmode="numeric" maxlength="19" aria-describedby="f-phone-err" required>
+          </div>
+          <p class="field__error" id="f-phone-err" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Повідомлення <span class="field__opt">(необов’язково)</span></label>
+          <textarea class="input" id="f-msg" name="message" maxlength="1000" placeholder="Коротко опиши запит: ФОП чи ТОВ, що турбує в обліку…"></textarea>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Не заповнюйте це поле</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button class="btn btn--block" type="submit">Розрахувати вартість аудиту</button>
+        <p class="form__privacy"><svg class="icon"><use href="#i-shield"/></svg>Твої дані конфіденційні й не передаються третім особам</p>
+      </form>
+
+      <div class="form-success" role="status" aria-live="polite">
+        <span class="check"><svg class="icon"><use href="#i-check"/></svg></span>
+        <h3>Дякуємо, заявку отримано!</h3>
+        <p>Наш експерт зв’яжеться з тобою найближчим часом, щоб уточнити деталі та повідомити вартість і строки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= Mobile sticky CTA ================= -->
+<div class="mobile-cta" id="mobile-cta">
+  <a class="btn" href="#order"><span class="btn__full">Замовити експрес-аудит</span><span class="btn__short" aria-hidden="true">Замовити аудит</span> <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+  <a class="tg-btn" href="https://t.me/alfa_gold_consult" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg class="icon icon--fill"><use href="#i-telegram"/></svg></a>
+</div>
+
+<!-- ================= Contacts ================= -->
+<footer class="footer grain" id="contacts">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="brand_assets/logo.png" alt="Alfa Gold Accounting Service" width="216" height="300" loading="lazy">
+        <p>Бухгалтерський та податковий супровід ФОП і ТОВ. Експрес-аудит обліку з експертним висновком і планом дій.</p>
+      </div>
+      <div>
+        <h4>Зв’язатися</h4>
+        <div class="footer__links">
+          <a href="tel:+380738070990"><svg class="icon"><use href="#i-phone"/></svg>+38 (073) 807 09 90</a>
+          <a href="mailto:alfagold.info@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>alfagold.info@gmail.com</a>
+        </div>
+      </div>
+      <div>
+        <h4>Месенджер</h4>
+        <div class="footer__links">
+          <a href="https://t.me/alfa_gold_consult" target="_blank" rel="noopener"><svg class="icon icon--fill"><use href="#i-telegram"/></svg>@alfa_gold_consult</a>
+          <span>Відповідаємо в робочий час</span>
+        </div>
+      </div>
+      <div>
+        <h4>Соцмережі</h4>
+        <div class="footer__links">
+          <a href="https://www.instagram.com/alfagoldconsult/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-instagram"/></svg>Instagram</a>
+          <a href="https://www.facebook.com/AlfaGoldConsalting" target="_blank" rel="noopener"><svg class="icon"><use href="#i-facebook"/></svg>Facebook</a>
+          <a href="https://www.youtube.com/@alfagoldconsult" target="_blank" rel="noopener"><svg class="icon"><use href="#i-youtube"/></svg>YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Alfa Gold. Усі права захищено.</span>
+      <a href="https://www.alfagold.ua/" target="_blank" rel="noopener">alfagold.ua</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Header shadow on scroll
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const setMenu = (open) => {
+    menu.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Закрити меню' : 'Відкрити меню');
+  };
+  toggle.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+
+  // Timeline: gold line fills with scroll, steps light up as the line reaches them
+  const timeline = document.getElementById('timeline');
+  const tSteps = [...timeline.querySelectorAll('.t-step')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let trackTop = 0, trackHeight = 0, ticking = false;
+  const measureTimeline = () => {
+    const nodes = tSteps.map((st) => st.querySelector('.t-step__node'));
+    const base = timeline.getBoundingClientRect().top;
+    const center = (n) => { const r = n.getBoundingClientRect(); return r.top + r.height / 2 - base; };
+    trackTop = center(nodes[0]);
+    trackHeight = center(nodes[nodes.length - 1]) - trackTop;
+    timeline.style.setProperty('--t-top', trackTop + 'px');
+    timeline.style.setProperty('--t-h', trackHeight + 'px');
+  };
+  const updateTimeline = () => {
+    ticking = false;
+    const anchor = window.innerHeight * 0.6;
+    const top = timeline.getBoundingClientRect().top + trackTop;
+    const p = reduceMotion ? 1 : Math.min(Math.max((anchor - top) / trackHeight, 0), 1);
+    timeline.style.setProperty('--p', p.toFixed(4));
+    let current = -1;
+    tSteps.forEach((st, i) => {
+      const r = st.querySelector('.t-step__node').getBoundingClientRect();
+      const reached = reduceMotion || r.top + r.height / 2 <= anchor + 1;
+      st.classList.toggle('is-active', reached);
+      if (reached) current = i;
+    });
+    tSteps.forEach((st, i) => st.classList.toggle('is-current', i === current && p < 1));
+  };
+  const onTimelineScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(updateTimeline); } };
+  measureTimeline();
+  updateTimeline();
+  window.addEventListener('scroll', onTimelineScroll, { passive: true });
+  window.addEventListener('resize', () => { measureTimeline(); updateTimeline(); });
+  window.addEventListener('load', () => { measureTimeline(); updateTimeline(); });
+
+  // Accordion: opening one item closes the rest (fallback for browsers without <details name>)
+  const accItems = document.querySelectorAll('.acc');
+  accItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) return;
+      accItems.forEach((other) => { if (other !== item && other.open) other.open = false; });
+    });
+  });
+
+  // No single-word lines: glue a lone word to its neighbour, re-measure, repeat
+  const fixOrphans = (el) => {
+    if (el.dataset.orig === undefined) el.dataset.orig = el.innerHTML; else el.innerHTML = el.dataset.orig;
+    for (let pass = 0; pass < 10; pass++) {
+      const items = [];
+      const wk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      for (let n; (n = wk.nextNode());) {
+        const re = / +|[^ ]+/g; let m;
+        while ((m = re.exec(n.textContent))) items.push({ node: n, start: m.index, end: m.index + m[0].length, space: m[0][0] === ' ' });
+      }
+      // group consecutive non-space items into words; remember the space before each word
+      const words = []; let prevSpace = null, cur = null;
+      items.forEach((it) => {
+        if (it.space) { prevSpace = it; cur = null; return; }
+        const txt = it.node.textContent.slice(it.start, it.end);
+        if (!cur) { cur = { spaceBefore: prevSpace, last: it, text: txt }; words.push(cur); } else { cur.last = it; cur.text += txt; }
+      });
+      // a glued group like "роботу бухгалтера." still counts as its real number of words
+      words.forEach((w) => { w.count = w.text.split('\u00a0').filter(Boolean).length; });
+      if (words.length < 2) return;
+      words.forEach((w) => { const rg = document.createRange(); rg.setStart(w.last.node, w.last.start); rg.setEnd(w.last.node, w.last.end); const rs = rg.getClientRects(); w.top = Math.round(rs[rs.length - 1].top); });
+      const lines = []; words.forEach((w, i) => { if (!i || w.top !== words[i - 1].top) lines.push([]); lines[lines.length - 1].push(i); });
+      if (lines.length < 2) return;
+      const lone = lines.findIndex((l) => l.reduce((sum, i) => sum + words[i].count, 0) === 1);
+      if (lone === -1) return;
+      const idx = lines[lone][0];
+      const after = words[idx + 1] && words[idx + 1].spaceBefore;
+      const before = words[idx].spaceBefore;
+      // last line: join to the previous word; otherwise try the next word, then the previous one
+      const tries = lone === lines.length - 1 ? [before] : [after, before];
+      const glue = (sp) => {
+        if (!sp) return false;
+        const t = sp.node.textContent;
+        sp.node.textContent = t.slice(0, sp.start) + '\u00a0' + t.slice(sp.start + 1);
+        if (el.scrollWidth > el.clientWidth + 1) { sp.node.textContent = t; return false; }
+        return true;
+      };
+      if (!tries.some(glue)) return;
+    }
+  };
+  const orphanTargets = document.querySelectorAll('[data-no-orphans] h3, [data-no-orphans] p');
+  // second pass on the next frame catches layout that was still settling (e.g. after a resize)
+  const runOrphans = () => { orphanTargets.forEach(fixOrphans); requestAnimationFrame(() => orphanTargets.forEach(fixOrphans)); };
+  let orphanTimer;
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(runOrphans);
+  window.addEventListener('load', runOrphans);
+  if (document.fonts) document.fonts.addEventListener('loadingdone', runOrphans);
+  window.addEventListener('resize', () => { clearTimeout(orphanTimer); orphanTimer = setTimeout(runOrphans, 120); });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => io.observe(el));
+
+  // Mobile sticky CTA: appears after the hero, hides while the enquiry form is on screen
+  const mobileCta = document.getElementById('mobile-cta');
+  const hero = document.querySelector('.hero');
+  let formInView = false;
+  const updateMobileCta = () => {
+    const pastHero = hero.getBoundingClientRect().bottom < 0;
+    const show = pastHero && !formInView && !menu.classList.contains('is-open');
+    mobileCta.classList.toggle('is-visible', show);
+    mobileCta.inert = !show;
+  };
+  new IntersectionObserver(([entry]) => { formInView = entry.isIntersecting; updateMobileCta(); }, { threshold: 0.05 })
+    .observe(document.getElementById('order'));
+  window.addEventListener('scroll', updateMobileCta, { passive: true });
+  toggle.addEventListener('click', updateMobileCta);
+  updateMobileCta();
+
+  // Order form
+  const form = document.getElementById('order-form');
+  const card = document.getElementById('form-card');
+  const nameInput = document.getElementById('f-name');
+  const phone = document.getElementById('f-phone');
+  const honeypot = document.getElementById('f-website');
+  const openedAt = Date.now();
+
+  // Phone: Ukrainian numbers only, masked as +38 (0XX) XXX XX XX
+  const toNational = (value) => {
+    let d = value.replace(/\D/g, '');
+    if (d.startsWith('38')) d = d.slice(2);
+    // The field is prefilled with 0, so a typed leading 0 must not double it
+    if (d.startsWith('00')) d = d.slice(1);
+    if (d && d[0] !== '0') d = '0' + d;
+    return d.slice(0, 10);
+  };
+  const formatPhone = (n) => {
+    if (!n) return '';
+    let out = '+38 (' + n.slice(0, 3);
+    if (n.length > 3) out += ') ' + n.slice(3, 6);
+    if (n.length > 6) out += ' ' + n.slice(6, 8);
+    if (n.length > 8) out += ' ' + n.slice(8, 10);
+    return out;
+  };
+  // Mobile operators (050, 063, 066–068, 073, 089, 091–099) and regional landlines (03X–06X)
+  const PHONE_RE = /^0(?:[3-6]\d|73|89|9[1-9])\d{7}$/;
+  const phoneError = (n) => {
+    if (!n || n === '0') return 'Вкажи номер телефону';
+    if (n.length < 10) return 'Номер має містити 10 цифр: 0XX XXX XX XX';
+    if (!PHONE_RE.test(n)) return 'Перевір код оператора — такого номера не існує';
+    if (/^(\d)\1{6}$/.test(n.slice(3))) return 'Схоже, номер введено некоректно';
+    return '';
+  };
+
+  const NAME_RE = /^[A-Za-zА-Яа-яІіЇїЄєҐґЁёЪъЫыЭэ'’ʼ\- ]+$/;
+  const nameError = (v) => {
+    const t = v.trim();
+    if (!t) return 'Вкажи, як до тебе звертатися';
+    if (!NAME_RE.test(t) || t.replace(/[^A-Za-zА-Яа-яІіЇїЄєҐґЁёЪъЫыЭэ]/g, '').length < 2) return 'Ім’я має містити лише літери';
+    return '';
+  };
+
+  const setError = (input, msg) => {
+    const el = document.getElementById(input.id + '-err');
+    input.setAttribute('aria-invalid', String(Boolean(msg)));
+    el.textContent = msg;
+  };
+
+  let prevNational = '';
+  phone.addEventListener('beforeinput', (e) => {
+    if (e.inputType === 'insertText' && e.data && /\D/.test(e.data)) e.preventDefault();
+  });
+  phone.addEventListener('input', (e) => {
+    let n = toNational(phone.value);
+    // Deleting a mask character (bracket or space) removes the preceding digit instead
+    if (e.inputType === 'deleteContentBackward' && n === prevNational) n = n.slice(0, -1);
+    if (n === '0' && e.inputType && e.inputType.startsWith('delete')) n = '';
+    phone.value = formatPhone(n);
+    prevNational = n;
+    if (phone.getAttribute('aria-invalid') === 'true' && !phoneError(n)) setError(phone, '');
+  });
+  phone.addEventListener('focus', () => {
+    if (!phone.value) { phone.value = '+38 (0'; prevNational = '0'; }
+  });
+  phone.addEventListener('blur', () => {
+    const n = toNational(phone.value);
+    if (n === '0' || !n) { phone.value = ''; prevNational = ''; return; }
+    setError(phone, phoneError(n));
+  });
+
+  nameInput.addEventListener('input', () => {
+    if (nameInput.getAttribute('aria-invalid') === 'true' && !nameError(nameInput.value)) setError(nameInput, '');
+  });
+  nameInput.addEventListener('blur', () => { if (nameInput.value.trim()) setError(nameInput, nameError(nameInput.value)); });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const n = toNational(phone.value);
+    const errs = [[nameInput, nameError(nameInput.value)], [phone, phoneError(n)]];
+    errs.forEach(([input, msg]) => setError(input, msg));
+    const firstBad = errs.find(([, msg]) => msg);
+    if (firstBad) { firstBad[0].focus(); return; }
+
+    // Bots fill the hidden field or submit instantly — show success but send nothing
+    const isBot = honeypot.value !== '' || Date.now() - openedAt < 2500;
+    const data = {
+      name: nameInput.value.trim(),
+      phone: '+38' + n,
+      message: document.getElementById('f-msg').value.trim(),
+    };
+    if (!isBot) {
+      // TODO: send `data` to CRM / Telegram bot endpoint
+      console.info('Lead', data);
+    }
+    card.classList.add('is-sent');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

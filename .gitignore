@@ -1,0 +1,18 @@
+# Publish only the website; everything else in this folder is working material
+/*
+!/.gitignore
+!/index.html
+!/images/
+!/fonts/
+!/brand_assets/
+
+# Brand files not used by the page
+/brand_assets/*
+!/brand_assets/logo.png
+!/brand_assets/logo-navy.png
+!/brand_assets/Group-59.png
+!/brand_assets/avatar-1.jpg
+!/brand_assets/avatar-2.jpg
+!/brand_assets/founder-2.jpg
+
+.DS_Store
