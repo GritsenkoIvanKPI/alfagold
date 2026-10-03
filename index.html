@@ -604,23 +604,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--t
 .format-card__body { display: flex; flex-direction: column; padding: var(--s-4) 0; }
 .format-card--reverse { grid-template-columns: 560px minmax(0, 1fr); padding: 16px var(--s-5) 16px 16px; }
 .format-card--reverse .format-card__media { order: -1; }
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  align-self: flex-start;
-  height: 64px;
-  padding: 0 22px;
-  border-radius: var(--r-sm);
-  background: var(--field);
-  font-family: var(--font-head);
-  font-size: 26px;
-  font-weight: 600;
-  letter-spacing: -.02em;
-  color: var(--navy);
-}
-.chip small { font-family: var(--font-body); font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0; }
-.format-card h3 { margin-top: var(--s-4); font-size: 28px; line-height: 34px; letter-spacing: -.02em; font-weight: 600; }
+.format-card h3 { margin-top: 0; font-size: 32px; line-height: 38px; letter-spacing: -.02em; font-weight: 600; }
+.format-card__types { display: block; margin-top: 4px; font-size: .72em; line-height: 1.3; font-weight: 500; letter-spacing: -.01em; color: var(--muted); }
 .format-card p { margin-top: 14px; max-width: 620px; color: var(--muted); font-size: 17px; line-height: 1.65; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px solid var(--line); }
 .tags li { padding: 6px 12px; border-radius: var(--r-pill); background: var(--bg); font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--navy); }
@@ -811,87 +796,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--t
 .t-step__foot .icon { width: 20px; height: 20px; color: var(--gold-hover); }
 
 .steps-foot { display: flex; flex-direction: column; align-items: center; gap: var(--s-4); margin-top: var(--s-5); text-align: center; }
-.steps-foot .note { display: inline-flex; align-items: center; gap: 12px; max-width: 760px; padding: 14px 22px; border-radius: var(--r-pill); background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .88); font-size: 16px; line-height: 1.5; text-align: left; }
-.steps-foot .note .icon { color: var(--gold); }
 
-/* ---------- What you get (split) ---------- */
-.split { display: grid; grid-template-columns: 628px minmax(0, 1fr); gap: 96px; align-items: stretch; }
-.split__media { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 560px; box-shadow: var(--shadow-elevated); }
-.split__media .media-shade { background: linear-gradient(to top, rgba(0, 0, 0, .6), rgba(0, 0, 0, 0) 55%); }
+/* ---------- What you get ---------- */
 
-/* Risk visual (replaces the photo in "What you get") */
-.risk-visual { background: var(--navy-deep); isolation: isolate; }
-.risk-visual__bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  border-radius: inherit;
-  background:
-    linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 70%);
-}
-.risk-visual__stage { position: absolute; left: 0; right: 0; top: 104px; display: flex; flex-direction: column; align-items: center; }
-.gauge { width: min(380px, 78%); height: auto; overflow: visible; }
-.gauge__seg { fill: none; stroke-width: 26; stroke-linecap: butt; }
-.gauge__seg--low { stroke: var(--risk-low); }
-.gauge__seg--medium { stroke: var(--risk-medium); }
-.gauge__seg--high { stroke: var(--risk-high); }
-.gauge__seg--critical { stroke: var(--risk-critical); }
-.gauge__ticks line { stroke: rgba(255, 255, 255, .22); stroke-width: 2; stroke-linecap: round; }
-.gauge__ticks line.major { stroke: rgba(255, 255, 255, .5); }
-.gauge__needle { fill: #fff; transform-box: view-box; transform-origin: 200px 210px; transform: rotate(-90deg); transition: transform 1.6s var(--ease-spring) .3s; }
-.risk-visual.is-visible .gauge__needle { transform: rotate(22.5deg); }
-.gauge__hub { fill: var(--navy-deep); stroke: var(--gold); stroke-width: 4; }
-.gauge__hub-dot { fill: var(--gold); }
-.gauge__label { display: grid; justify-items: center; gap: 2px; margin-top: 10px; text-align: center; }
-.gauge__label span { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
-.gauge__label strong { font-family: var(--font-head); font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -.02em; color: var(--risk-high); }
-.risk-chip {
-  --c: var(--risk-low);
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px 8px 12px;
-  border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, .08);
-  border: 1px solid rgba(255, 255, 255, .14);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .6s var(--ease-out), transform .8s var(--ease-spring);
-}
-.risk-chip::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
-.risk-chip--critical { --c: var(--risk-critical); }
-.risk-chip--high { --c: var(--risk-high); }
-.risk-chip--medium { --c: var(--risk-medium); }
-.risk-chip--a { left: 9%; top: -18px; }
-.risk-chip--b { right: 9%; top: 18px; }
-.risk-chip--c { left: 5%; top: 178px; }
-.risk-chip--d { right: 6%; top: 214px; }
-.risk-visual.is-visible .risk-chip { opacity: 1; transform: none; animation: chipFloat 5s ease-in-out infinite; }
-.risk-visual.is-visible .risk-chip--a { transition-delay: .5s; animation-delay: 1.2s; }
-.risk-visual.is-visible .risk-chip--b { transition-delay: .65s; animation-delay: 1.9s; }
-.risk-visual.is-visible .risk-chip--c { transition-delay: .8s; animation-delay: 2.6s; }
-.risk-visual.is-visible .risk-chip--d { transition-delay: .95s; animation-delay: 3.3s; }
-@keyframes chipFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-.risk-card {
-  position: absolute;
-  left: 24px; right: 24px; bottom: 24px;
-  z-index: 1;
-  padding: 22px 24px;
-  border-radius: 20px;
-  background: var(--surface);
-  box-shadow: var(--shadow-floating);
-}
-.risk-card h3 { font-size: 18px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; }
+.result { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); align-items: start; }
+.result__head .h2 { margin-top: var(--s-3); }
+.result__body .lead { font-size: 20px; color: var(--text); }
+.t-step__sub { margin-top: 18px; padding: 18px 20px; border-radius: var(--r-md); background: var(--bg); }
+.t-step__sub h4 { font-size: 17px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; }
 .risk-list { display: grid; gap: 10px; margin-top: 14px; }
 .risk-list li { display: grid; grid-template-columns: 104px 1fr; gap: 12px; align-items: baseline; font-size: 14px; line-height: 1.45; color: var(--muted); }
 .risk-tag { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); }
@@ -901,16 +813,6 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--t
 .risk-tag--medium { --c: var(--risk-medium); }
 .risk-tag--low { --c: var(--risk-low); }
 
-.split__content .h2 { margin-top: var(--s-3); }
-.split__content .lead { margin-top: var(--s-4); max-width: 520px; }
-.feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 28px; margin-top: var(--s-5); }
-.feature-list li { display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: center; font-size: 16px; line-height: 1.4; color: var(--muted); }
-.feature-list strong { display: block; font-family: var(--font-head); font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -.01em; color: var(--navy); }
-.feature-list__icon { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; box-shadow: inset 0 0 0 1px rgba(255, 156, 28, .18); background: var(--navy); color: var(--gold); transition: transform .5s var(--ease-spring); }
-.feature-list__icon .icon { width: 24px; height: 24px; stroke-width: 1.7; }
-.feature-list li:hover .feature-list__icon { transform: rotate(-8deg) scale(1.06); }
-.fineprint { display: flex; gap: 12px; margin-top: var(--s-5); padding-top: var(--s-3); border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--muted); }
-.fineprint .icon { width: 18px; height: 18px; color: var(--muted-2); margin-top: 2px; }
 
 /* ---------- Why Alfa Gold (about) ---------- */
 .about-head { display: block; }
@@ -1052,7 +954,16 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--t
 .form-card__sub { margin-top: 6px; font-size: 15px; color: var(--muted); }
 .form { display: grid; gap: 18px; margin-top: var(--s-3); }
 .field { display: grid; gap: 10px; }
-.field > label { font-size: 16px; font-weight: 500; color: var(--text); padding: 0; }
+fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px; border-radius: var(--r-pill); background: var(--field); border: 1px solid var(--line); transition: border-color .2s ease; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label { display: grid; place-items: center; height: 46px; border-radius: var(--r-pill); font-weight: 700; color: var(--muted); cursor: pointer; transition: background-color .25s ease, color .25s ease, transform .4s var(--ease-spring); }
+.seg label:hover { color: var(--navy); }
+.seg label:active { transform: scale(.97); }
+.seg input:checked + label { background: var(--navy); color: #fff; }
+.seg input:focus-visible + label { outline: 3px solid var(--gold); outline-offset: 2px; }
+.seg.is-invalid { border-color: var(--risk-critical); }
+.field > label, .field > legend { font-size: 16px; font-weight: 500; color: var(--text); padding: 0; }
 .control { position: relative; }
 .control > .icon { position: absolute; left: 22px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted-2); pointer-events: none; }
 .input {
@@ -1142,8 +1053,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .reveal, .reveal-stagger > *, .hero-in { opacity: 1; transform: none; }
   .marquee__track { animation: none; }
   .t-step__card { opacity: 1; transform: none; }
-  .gauge__needle { transform: rotate(22.5deg); }
-  .risk-chip { opacity: 1; transform: none; }
 }
 
 /* ---------- Mobile CTA bar ---------- */
@@ -1154,7 +1063,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .need-card { padding: 24px; }
   .need-card h3 { font-size: 20px; line-height: 26px; }
   .need-card p { font-size: 15px; }
-  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); }
   .nav { gap: 22px; }
 }
 @media (max-width: 1180px) {
@@ -1177,10 +1085,9 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .trust__inner { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 900px) {
+  .result { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); }
   .h2 { font-size: 44px; line-height: 50px; }
   .hero h1 { font-size: 54px; line-height: 60px; }
-  .split { grid-template-columns: minmax(0, 1fr); }
-  .split__media { min-height: 740px; }
   .format-card, .format-card--reverse { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 16px; }
   .format-card__body { padding: 16px; }
   .format-card__media { min-height: 320px; order: -1; }
@@ -1278,9 +1185,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .formats-list { gap: 16px; }
   .format-card__media { min-height: 220px; }
   .format-card__body { padding: 20px 8px 8px; }
-  .chip { height: 48px; padding: 0 16px; font-size: 22px; }
-  .chip small { display: none; }
-  .format-card h3 { margin-top: 18px; font-size: 24px; line-height: 30px; }
+  .format-card h3 { margin-top: 0; font-size: 25px; line-height: 31px; }
   .format-card p { font-size: 16px; }
   .format-card .tags { margin-bottom: 24px; }
   .tags li { font-size: 13px; }
@@ -1306,27 +1211,14 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .t-step__body p { font-size: 15px; line-height: 1.6; }
   .t-step__body .bullets { grid-template-columns: minmax(0, 1fr); }
   .bullets li { font-size: 14px; }
+  .t-step__sub { padding: 16px; }
+  .t-step__sub h4 { font-size: 16px; }
+  .result__body .lead { font-size: 17px; }
   .t-step__foot { margin-top: 18px; padding-top: 14px; font-size: 14px; align-items: flex-start; }
   .steps-foot { margin-top: var(--s-4); gap: 20px; }
-  .steps-foot .note { border-radius: var(--r-md); padding: 14px 16px; font-size: 15px; align-items: flex-start; }
 
-  /* What you get: photo on top, risk card below it */
-  .split { gap: var(--s-4); }
-  .split__media { min-height: 0; overflow: visible; box-shadow: none; border-radius: 0; }
-  .risk-visual { background: none; }
-  .risk-visual__bg { bottom: auto; height: 340px; border-radius: var(--r-lg); }
-  .risk-visual__stage { top: 40px; }
-  .gauge { width: min(300px, 84%); }
-  .gauge__label strong { font-size: 24px; }
-  .risk-chip { font-size: 12px; padding: 7px 12px 7px 10px; }
-  .risk-chip--a { left: 4%; top: -24px; }
-  .risk-chip--b { right: 4%; top: -24px; }
-  .risk-chip--c, .risk-chip--d { display: none; }
-  .risk-card { position: relative; left: auto; right: auto; bottom: auto; margin: 300px 10px 0; padding: 18px; }
+  /* Risk levels inside step 4 */
   .risk-list li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
-  .feature-list { grid-template-columns: minmax(0, 1fr); gap: 14px; margin-top: var(--s-4); }
-  .feature-list strong { font-size: 18px; }
-  .fineprint { margin-top: var(--s-4); }
 
   /* Why Alfa Gold */
   .about-grid { gap: 16px; margin-top: var(--s-4); }
@@ -1389,7 +1281,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   .hero h1 { font-size: 33px; line-height: 39px; }
   .logo__mark { height: 30px; }
   .t-step__card h3 { font-size: 19px; line-height: 25px; }
-  .chip { font-size: 20px; }
   .acc__body { padding-left: 16px; }
 @media (max-width: 340px) {
   main .btn .icon { display: none; }
@@ -1443,15 +1334,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8z"/><path d="m10 15 5-3-5-3v6z"/></symbol>
   <!-- Alfa Gold horizontal logo (colour follows currentColor) -->
   <symbol id="logo-alfagold" viewBox="23.7 78 452.6 135"><path d="M472.6,160.7c-.9.9-2,1.6-3.1,2.1-1.1.5-2.2.8-3.2.8-1.5,0-2.8-.2-3.9-.7-1.1-.5-1.8-1.2-2.3-2.2-.5-1-.8-2.2-.8-3.5v-10.2c0-.9.1-1.7.1-2.6s0-1.8-.1-2.6v-63.7h-11.3v42.4c-.9-.7-1.8-1.3-2.8-1.9-4.4-2.6-9.3-3.9-14.8-3.9s-10.6,1.3-14.9,3.9c-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3s1.3,10.8,3.8,15.3c2.5,4.5,6,8,10.4,10.5,4.4,2.6,9.4,3.9,14.9,3.9s10.4-1.3,14.8-3.9c1.9-1.1,3.6-2.5,5.2-3.9,1.4,2.4,3.3,4.2,5.7,5.6,2.5,1.4,5.5,2.2,8.8,2.2s4.5-.4,6.5-1.3c2-.9,3.7-2,4.9-3.5l-3.8-8.6ZM445.8,154.3c-1.5,2.9-3.6,5.3-6.3,7-2.7,1.7-5.7,2.6-9.1,2.6s-6.5-.9-9.2-2.6c-2.7-1.7-4.8-4-6.4-7-1.5-2.9-2.2-6.2-2.2-9.9,0-3.7.7-7,2.2-9.9,1.5-2.9,3.6-5.2,6.4-7,2.7-1.7,5.8-2.6,9.2-2.6s6.4.8,9.1,2.5c2.7,1.7,4.8,4,6.3,6.9,1.5,2.9,2.2,6.3,2.2,10,0,3.7-.7,7-2.2,9.9Z"/><path d="M104.6,172.6c2.5,1.4,5.5,2.2,8.8,2.2s4.5-.4,6.5-1.3c2-.9,3.7-2,4.9-3.5l-3.8-8.6c-.9.9-2,1.6-3.1,2.1-1.1.5-2.2.8-3.2.8-1.5,0-2.8-.2-3.9-.7-1.1-.5-1.8-1.2-2.3-2.2-.5-1-.8-2.2-.8-3.5v-79.8h-11.3v79.8c0,3.3.7,6.2,2.2,8.7,1.4,2.5,3.4,4.5,6,6Z"/><path d="M374,172.6c2.5,1.4,5.5,2.2,8.8,2.2s4.5-.4,6.5-1.3c2-.9,3.7-2,4.9-3.5l-3.8-8.6c-.9.9-2,1.6-3.1,2.1-1.1.5-2.2.8-3.2.8-1.5,0-2.8-.2-3.9-.7-1.1-.5-1.8-1.2-2.3-2.2-.5-1-.8-2.2-.8-3.5v-79.8h-11.3v79.8c0,3.3.7,6.2,2.2,8.7,1.4,2.5,3.4,4.5,6,6Z"/><g><path d="M262.7,170.2c4.4,2.6,9.4,3.9,14.9,3.9s10.4-1.3,14.8-3.9c4.4-2.6,7.8-6.1,10.4-10.5,2.5-4.5,3.8-9.5,3.8-15.3s-1.3-10.8-3.8-15.3c-2.2-3.8-5-6.9-8.5-9.3,3.5-2.4,6.4-5.5,8.5-9.3,2.5-4.5,3.8-9.5,3.8-15.3h-11.4c0,3.7-.7,7-2.2,9.9-1.5,2.9-3.6,5.3-6.3,7-2.7,1.7-5.7,2.6-9.1,2.6h0s0,0,0,0h0c-5.6,0-10.5,1.3-14.9,3.9-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3s1.3,10.8,3.8,15.3c2.5,4.5,6,8,10.4,10.5ZM262.1,134.5c1.5-2.9,3.6-5.2,6.4-7,2.7-1.7,5.8-2.6,9.2-2.6h0c3.4,0,6.4.8,9.1,2.5,2.7,1.7,4.8,4,6.3,6.9,1.5,2.9,2.2,6.3,2.2,10,0,3.7-.7,7-2.2,9.9-1.5,2.9-3.6,5.3-6.3,7-2.7,1.7-5.7,2.6-9.1,2.6s-6.5-.9-9.2-2.6c-2.7-1.7-4.8-4-6.4-7-1.5-2.9-2.2-6.2-2.2-9.9,0-3.7.7-7,2.2-9.9Z"/><path d="M262.7,209.1c4.4,2.6,9.4,3.9,14.9,3.9s10.4-1.3,14.8-3.9c4.4-2.6,7.8-6.1,10.4-10.5,2.5-4.5,3.8-9.5,3.8-15.3h-11.4c0,3.7-.7,7-2.2,9.9-1.5,2.9-3.6,5.3-6.3,7-2.7,1.7-5.7,2.6-9.1,2.6s-6.5-.9-9.2-2.6c-2.7-1.7-4.8-4-6.4-7-1.5-2.9-2.2-6.2-2.2-9.9h-11.4c0,5.7,1.3,10.8,3.8,15.3,2.5,4.5,6,8,10.4,10.5Z"/></g><path d="M335.6,152.9c7.8,0,14.2-6.3,14.2-14.2s-6.3-14.2-14.2-14.2-14.2,6.3-14.2,14.2,6.3,14.2,14.2,14.2Z"/><path d="M67.6,145.1c-4.4-2.6-9.4-3.9-14.9-3.9s-10.4,1.3-14.8,3.9c-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3h11.4c0-3.7.7-7,2.2-9.9,1.5-2.9,3.6-5.3,6.3-7,2.7-1.7,5.7-2.6,9.1-2.6s6.5.9,9.2,2.6c2.7,1.7,4.8,4,6.4,7,1.5,2.9,2.2,6.2,2.2,9.9h11.4v-32c0-5.7-1.3-10.8-3.8-15.3-2.5-4.5-6-8-10.4-10.5-4.4-2.6-9.4-3.9-14.9-3.9s-10.4,1.3-14.8,3.9c-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3h11.4c0-3.7.7-7,2.2-9.9,1.5-2.9,3.6-5.3,6.3-7,2.7-1.7,5.7-2.6,9.1-2.6s6.5.9,9.2,2.6c2.7,1.7,4.8,4,6.4,7,1.5,2.9,2.2,6.2,2.2,9.9v8c-.9-.7-1.8-1.3-2.8-1.9Z"/><path d="M218.9,145.1c-4.4-2.6-9.4-3.9-14.9-3.9s-10.4,1.3-14.8,3.9c-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3h11.4c0-3.7.7-7,2.2-9.9,1.5-2.9,3.6-5.3,6.3-7,2.7-1.7,5.7-2.6,9.1-2.6s6.5.9,9.2,2.6c2.7,1.7,4.8,4,6.4,7,1.5,2.9,2.2,6.2,2.2,9.9h11.4v-32c0-5.7-1.3-10.8-3.8-15.3-2.5-4.5-6-8-10.4-10.5-4.4-2.6-9.4-3.9-14.9-3.9s-10.4,1.3-14.8,3.9c-4.4,2.6-7.8,6.1-10.4,10.5-2.5,4.5-3.8,9.5-3.8,15.3h11.4c0-3.7.7-7,2.2-9.9,1.5-2.9,3.6-5.3,6.3-7,2.7-1.7,5.7-2.6,9.1-2.6s6.5.9,9.2,2.6c2.7,1.7,4.8,4,6.4,7,1.5,2.9,2.2,6.2,2.2,9.9v8c-.9-.7-1.8-1.3-2.8-1.9Z"/><path d="M150.9,158.3v-45.7h13.5v-10.3h-13.5v-7.4c0-1.4.3-2.6.8-3.5.5-1,1.3-1.7,2.3-2.2,1-.5,2.3-.7,3.9-.7s2.1.3,3.2.8c1.1.5,2.2,1.2,3.1,2.1l3.8-8.6c-1.2-1.4-2.9-2.6-4.9-3.5-2-.9-4.2-1.3-6.5-1.3-3.3,0-6.3.7-8.8,2.2-2.5,1.5-4.5,3.4-6,6-1.4,2.5-2.2,5.4-2.2,8.7v7.4h-9.1v10.3h9.1v58.3h11.3v-12.6Z"/></symbol>
-  <!-- Feature list icon set: one grid, one stroke weight -->
-  <symbol id="f-assess" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
-  <symbol id="f-errors" viewBox="0 0 24 24"><path d="M3 5h18"/><path d="M3 11h9"/><path d="M3 17h7"/><path d="m14.5 12.5 6 6"/><path d="m20.5 12.5-6 6"/></symbol>
-  <symbol id="f-impact" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
-  <symbol id="f-advice" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
-  <symbol id="f-priority" viewBox="0 0 24 24"><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></symbol>
-  <symbol id="f-check" viewBox="0 0 24 24"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M4 11V4a2 2 0 0 1 2-2h8l6 6v12a2 2 0 0 1-2 2h-5"/><circle cx="7" cy="17" r="3"/><path d="m11.5 21.5-2.4-2.4"/></symbol>
-  <symbol id="f-verdict" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/></symbol>
-  <symbol id="f-consult" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></symbol>
 </svg>
 
 <!-- ================= Header ================= -->
@@ -1621,7 +1503,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     <div class="formats-list reveal-stagger">
       <article class="format-card">
         <div class="format-card__body">
-          <span class="chip">ФОП <small>фізична особа-підприємець</small></span>
           <h3>Експрес-аудит ФОП</h3>
           <p>Перевіряємо реєстраційні дані, систему оподаткування, суму доходів від початку року, звітність і сплату податків — з урахуванням ризиків саме твого виду діяльності.</p>
           <ul class="tags" aria-label="Що перевіряємо у ФОП">
@@ -1634,7 +1515,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
             <li>Способи приймання оплат</li>
             <li>Працівники</li>
           </ul>
-          <a class="btn" href="#order">Замовити аудит ФОП <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn" href="#order" data-format="fop">Замовити аудит ФОП <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         </div>
         <div class="format-card__media">
           <img class="media-img" src="images/fop.jpg" alt="Підприємиця перевіряє продажі на касовому терміналі у своїй кав’ярні" width="1000" height="747" loading="lazy">
@@ -1645,8 +1526,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 
       <article class="format-card format-card--reverse">
         <div class="format-card__body">
-          <span class="chip">ТОВ <small>товариство з обмеженою відповідальністю</small></span>
-          <h3>Експрес-аудит ТОВ</h3>
+          <h3>Експрес-аудит юридичних осіб <span class="format-card__types">(ТОВ, ПП, ГО, БО)</span></h3>
           <p>Перевіряємо стан бухгалтерської бази, закриття періодів, ключові рахунки та податкові розрахунки компанії.</p>
           <ul class="tags" aria-label="Що перевіряємо у ТОВ">
             <li>Бухгалтерська база</li>
@@ -1661,10 +1541,10 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
             <li>Зарплата й кадри</li>
             <li>ЗЕД</li>
           </ul>
-          <a class="btn" href="#order">Замовити аудит ТОВ <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn" href="#order" data-format="tov">Замовити аудит ТОВ <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         </div>
         <div class="format-card__media">
-          <img class="media-img" src="images/tov.jpg" alt="Фінансова директорка та головний бухгалтер аналізують звітність компанії" width="1000" height="747" loading="lazy">
+          <img class="media-img" src="images/tov.jpg" alt="Фінансова директорка та головний бухгалтер переглядають звітність компанії за столом в офісі" width="1000" height="747" loading="lazy">
           <div class="media-tint"></div>
           <div class="media-shade"></div>
         </div>
@@ -1752,12 +1632,12 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
           <div class="t-step__body">
             <p>Формуємо індивідуальний перелік документів і погоджуємо формат доступу до облікової системи. Залежно від завдання можуть знадобитися:</p>
             <ul class="bullets">
-              <li>доступ до облікової системи та електронного кабінету</li>
-              <li>оборотно-сальдові відомості й банківські виписки</li>
+              <li>доступ до облікової системи</li>
+              <li>доступ до електронного кабінету</li>
               <li>податкова та фінансова звітність</li>
-              <li>договори й первинні документи</li>
               <li>кадрові та зарплатні документи</li>
-              <li>інформація про РРО/ПРРО, ЗЕД та нестандартні операції</li>
+              <li>інформація про РРО та ПРРО</li>
+              <li>інформація про ЗЕД та нестандартні операції</li>
             </ul>
           </div>
           <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Перелік документів готуємо ми</p>
@@ -1774,7 +1654,16 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
             <span class="t-step__icon"><svg class="icon"><use href="#i-search"/></svg></span>
           </div>
           <div class="t-step__body">
-            <p>Аналізуємо облік, звітність, податки та документи в межах погодженого завдання — не лише звітність, а й облікову систему та первинку.</p>
+            <p>Аналізуємо облік, звітність і податки в межах погодженого завдання — не лише звітність, а й облікову систему.</p>
+          </div>
+          <div class="t-step__sub">
+            <h4>Ризики розподіляємо за рівнями</h4>
+            <ul class="risk-list">
+              <li><span class="risk-tag risk-tag--critical">Критичний</span>може спричинити значні донарахування, штрафи або втрату статусу платника</li>
+              <li><span class="risk-tag risk-tag--high">Високий</span>потребує термінового виправлення</li>
+              <li><span class="risk-tag risk-tag--medium">Середній</span>може вплинути на облік або звітність</li>
+              <li><span class="risk-tag risk-tag--low">Низький</span>не створює значної загрози, але потребує впорядкування</li>
+            </ul>
           </div>
           <p class="t-step__foot"><svg class="icon"><use href="#i-check-circle"/></svg>Окремі методики для ФОП і ТОВ</p>
         </article>
@@ -1798,7 +1687,6 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     </ol>
 
     <div class="steps-foot reveal">
-      <p class="note"><svg class="icon"><use href="#i-info"/></svg>Не потрібно самостійно готувати всі документи. Після першої консультації ми надамо перелік, необхідний саме для твого аудиту.</p>
       <a class="btn btn--lg" href="#order">Записатися на консультацію <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
     </div>
   </div>
@@ -1806,55 +1694,14 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 
 <!-- ================= Result ================= -->
 <section class="section" id="result" aria-labelledby="result-title">
-  <div class="container split">
-    <div class="split__media risk-visual reveal">
-      <div class="risk-visual__bg" aria-hidden="true">
-      </div>
-      <div class="risk-visual__stage" role="img" aria-label="Шкала ризиків: низький, середній, високий, критичний">
-        <span class="risk-chip risk-chip--critical risk-chip--a">ПДВ</span>
-        <span class="risk-chip risk-chip--high risk-chip--b">ЄСВ</span>
-        <span class="risk-chip risk-chip--medium risk-chip--c">РРО/ПРРО</span>
-        <span class="risk-chip risk-chip--low risk-chip--d">Звітність</span>
-        <svg class="gauge" viewBox="0 0 400 236">
-          <g class="gauge__ticks"><line x1="76.0" y1="210.0" x2="64.0" y2="210.0" class="major"/><line x1="73.58" y1="189.98" x2="65.67" y2="188.72"/><line x1="78.26" y1="170.45" x2="70.66" y2="167.97"/><line x1="85.95" y1="151.89" x2="78.82" y2="148.26"/><line x1="96.45" y1="134.76" x2="89.97" y2="130.06"/><line x1="112.32" y1="122.32" x2="103.83" y2="113.83" class="major"/><line x1="124.76" y1="106.45" x2="120.06" y2="99.97"/><line x1="141.89" y1="95.95" x2="138.26" y2="88.82"/><line x1="160.45" y1="88.26" x2="157.97" y2="80.66"/><line x1="179.98" y1="83.58" x2="178.72" y2="75.67"/><line x1="200.0" y1="86.0" x2="200.0" y2="74.0" class="major"/><line x1="220.02" y1="83.58" x2="221.28" y2="75.67"/><line x1="239.55" y1="88.26" x2="242.03" y2="80.66"/><line x1="258.11" y1="95.95" x2="261.74" y2="88.82"/><line x1="275.24" y1="106.45" x2="279.94" y2="99.97"/><line x1="287.68" y1="122.32" x2="296.17" y2="113.83" class="major"/><line x1="303.55" y1="134.76" x2="310.03" y2="130.06"/><line x1="314.05" y1="151.89" x2="321.18" y2="148.26"/><line x1="321.74" y1="170.45" x2="329.34" y2="167.97"/><line x1="326.42" y1="189.98" x2="334.33" y2="188.72"/><line x1="324.0" y1="210.0" x2="336.0" y2="210.0" class="major"/></g>
-          <path class="gauge__seg gauge__seg--low" d="M40.05 205.81 A160 160 0 0 1 83.94 99.86"/>
-          <path class="gauge__seg gauge__seg--medium" d="M89.86 93.94 A160 160 0 0 1 195.81 50.05"/>
-          <path class="gauge__seg gauge__seg--high" d="M204.19 50.05 A160 160 0 0 1 310.14 93.94"/>
-          <path class="gauge__seg gauge__seg--critical" d="M316.06 99.86 A160 160 0 0 1 359.95 205.81"/>
-          <g class="gauge__needle">
-            <path d="M196 210 L200 92 L204 210 Z"/>
-          </g>
-          <circle class="gauge__hub" cx="200" cy="210" r="15"/>
-          <circle class="gauge__hub-dot" cx="200" cy="210" r="5"/>
-        </svg>
-        <p class="gauge__label"><span>Рівень ризику</span><strong>Високий</strong></p>
-      </div>
-      <div class="risk-card">
-        <h3>Ризики розподіляємо за рівнями</h3>
-        <ul class="risk-list">
-          <li><span class="risk-tag risk-tag--critical">Критичний</span>може спричинити значні донарахування, штрафи або втрату статусу платника</li>
-          <li><span class="risk-tag risk-tag--high">Високий</span>потребує термінового виправлення</li>
-          <li><span class="risk-tag risk-tag--medium">Середній</span>може вплинути на облік або звітність</li>
-          <li><span class="risk-tag risk-tag--low">Низький</span>не створює значної загрози, але потребує впорядкування</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="split__content reveal">
+  <div class="container result">
+    <div class="result__head reveal">
       <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Що ти отримаєш</span>
       <h2 class="h2" id="result-title">Не просто перелік помилок, а план дій</h2>
-      <p class="lead">Ти отримаєш зрозумілу картину стану обліку та конкретний план дій. За результатами аудиту:</p>
-      <ul class="feature-list">
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-assess"/></svg></span><span><strong>Оцінка стану</strong> обліку й податків</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-errors"/></svg></span><span><strong>Перелік помилок</strong> і невідповідностей</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-impact"/></svg></span><span><strong>Наслідки</strong> для бізнесу</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-advice"/></svg></span><span><strong>Рекомендації</strong> з виправлення</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-priority"/></svg></span><span><strong>Пріоритети</strong> подальших дій</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-check"/></svg></span><span><strong>Питання</strong> для додаткової перевірки</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-verdict"/></svg></span><span><strong>Висновок:</strong> виправлення чи відновлення</span></li>
-        <li><span class="feature-list__icon"><svg class="icon"><use href="#f-consult"/></svg></span><span><strong>Консультація</strong> з розбором результатів</span></li>
-      </ul>
-      <p class="fineprint"><svg class="icon"><use href="#i-info"/></svg><span>Експрес-аудит не включає внесення виправлень, відновлення обліку, створення відсутніх документів, подання уточнюючої звітності та супровід перевірок. Ці роботи можна замовити окремо після отримання висновку.</span></p>
+    </div>
+    <div class="result__body reveal">
+      <p class="lead">Ти отримаєш зрозумілу картину стану обліку та конкретний план дій.</p>
+      <p class="callout"><svg class="icon"><use href="#i-info"/></svg><span><strong>Експрес-аудит не включає внесення виправлень, відновлення обліку, створення відсутніх документів, подання уточнюючої звітності та супровід перевірок.</strong> Ці роботи можна замовити окремо після отримання висновку.</span></p>
     </div>
   </div>
 </section>
@@ -1988,9 +1835,20 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
           <p class="field__error" id="f-phone-err" aria-live="polite"></p>
         </div>
 
+        <fieldset class="field" id="f-business" aria-describedby="f-business-err">
+          <legend>Форма бізнесу</legend>
+          <div class="seg">
+            <input type="radio" name="business" id="f-fop" value="ФОП" required>
+            <label for="f-fop">ФОП</label>
+            <input type="radio" name="business" id="f-tov" value="ТОВ">
+            <label for="f-tov">ТОВ</label>
+          </div>
+          <p class="field__error" id="f-business-err" aria-live="polite"></p>
+        </fieldset>
+
         <div class="field">
           <label for="f-msg">Повідомлення <span class="field__opt">(необов’язково)</span></label>
-          <textarea class="input" id="f-msg" name="message" maxlength="1000" placeholder="Коротко опиши запит: ФОП чи ТОВ, що турбує в обліку…"></textarea>
+          <textarea class="input" id="f-msg" name="message" maxlength="1000" placeholder="Коротко опиши запит: що турбує в обліку…"></textarea>
         </div>
 
         <div class="hp" aria-hidden="true">
@@ -2272,19 +2130,32 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   });
   nameInput.addEventListener('blur', () => { if (nameInput.value.trim()) setError(nameInput, nameError(nameInput.value)); });
 
+  const seg = form.querySelector('.seg');
+  const setBusinessError = (msg) => { seg.classList.toggle('is-invalid', Boolean(msg)); document.getElementById('f-business-err').textContent = msg; };
+  form.querySelectorAll('input[name="business"]').forEach((radio) => radio.addEventListener('change', () => setBusinessError('')));
+  // Format-card buttons pre-select the matching business form
+  document.querySelectorAll('[data-format]').forEach((btn) => btn.addEventListener('click', () => {
+    document.getElementById(btn.dataset.format === 'tov' ? 'f-tov' : 'f-fop').checked = true;
+    setBusinessError('');
+  }));
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const n = toNational(phone.value);
     const errs = [[nameInput, nameError(nameInput.value)], [phone, phoneError(n)]];
     errs.forEach(([input, msg]) => setError(input, msg));
+    const business = form.querySelector('input[name="business"]:checked');
+    setBusinessError(business ? '' : 'Обери ФОП або ТОВ');
     const firstBad = errs.find(([, msg]) => msg);
     if (firstBad) { firstBad[0].focus(); return; }
+    if (!business) { document.getElementById('f-fop').focus(); return; }
 
     // Bots fill the hidden field or submit instantly — show success but send nothing
     const isBot = honeypot.value !== '' || Date.now() - openedAt < 2500;
     const data = {
       name: nameInput.value.trim(),
       phone: '+38' + n,
+      business: business.value,
       message: document.getElementById('f-msg').value.trim(),
     };
     if (!isBot) {
