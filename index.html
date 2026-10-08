@@ -188,7 +188,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--bg);
@@ -214,6 +214,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 500; color: var(--t
 .section--flush { padding-top: 0; }
 .cta { padding-bottom: var(--s-section); }
 
+main:focus { outline: none; }
 .skip-link {
   position: fixed;
   left: 16px;
@@ -989,6 +990,10 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 .field__error { min-height: 0; margin-top: -4px; padding-left: 22px; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--risk-critical); }
 .field__error:empty { display: none; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form__error { padding: 14px 18px; border-radius: var(--r-md); background: #fdecea; border: 1px solid #f3c2bc; color: #8f2a20; font-size: 15px; line-height: 1.5; font-weight: 500; }
+.form__error[hidden] { display: none; }
+.form__error a { font-weight: 700; text-decoration: underline; white-space: nowrap; }
+.btn[disabled] { opacity: .7; cursor: progress; }
 .form__privacy { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
 .form__privacy .icon { width: 18px; height: 18px; }
 .form-success { display: none; text-align: center; padding: var(--s-6) var(--s-3); }
@@ -1337,7 +1342,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 </svg>
 
 <!-- ================= Header ================= -->
-<header class="site-header" id="top">
+<header class="site-header">
   <div class="site-header__bar">
     <a class="logo" href="#top" aria-label="Alfa Gold — на початок сторінки">
       <svg class="logo__mark" role="img" aria-label="Alfa Gold"><use href="#logo-alfagold"/></svg>
@@ -1365,11 +1370,11 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     <a href="#result">Що ти отримаєш</a>
     <a href="#price">Вартість</a>
     <a href="#contacts">Контакти</a>
-    <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+    <a class="btn" href="#form-card">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
   </nav>
 </header>
 
-<main id="main">
+<main id="main" tabindex="-1">
 
 <!-- ================= Hero ================= -->
 <section class="hero grain" aria-labelledby="hero-title">
@@ -1386,7 +1391,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
       <h1 id="hero-title" class="hero-in"><span class="nowrap">Експрес-аудит</span> <span class="hl">обліку</span> ФОП&nbsp;і&nbsp;ТОВ</h1>
       <p class="hero__text hero-in hero-in--3">Перевіримо, чи правильно ведеться облік твого бізнесу</p>
       <div class="hero__actions hero-in hero-in--4">
-        <a class="btn btn--lg" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a class="btn btn--lg" href="#form-card">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         <a class="btn btn--lg btn--ghost" href="#process">Як проходить аудит</a>
       </div>
     </div>
@@ -1435,9 +1440,9 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 </section>
 
 <!-- ================= Who needs ================= -->
-<section class="section" id="who" aria-labelledby="who-title">
+<section class="section" aria-labelledby="who-title">
   <div class="container">
-    <div class="section-head section-head--center reveal">
+    <div class="section-head section-head--center reveal" id="who">
       <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Кому потрібен аудит</span>
       <h2 class="h2" id="who-title">Експрес-аудит варто провести, якщо ти…</h2>
     </div>
@@ -1485,7 +1490,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     </div>
     <div class="needs-cta reveal">
       <p>Впізнав свою ситуацію?</p>
-      <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+      <a class="btn" href="#form-card">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
     </div>
   </div>
 </section>
@@ -1515,7 +1520,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
             <li>Способи приймання оплат</li>
             <li>Працівники</li>
           </ul>
-          <a class="btn" href="#order" data-format="fop">Замовити аудит ФОП <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn" href="#form-card" data-format="fop">Замовити аудит ФОП <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         </div>
         <div class="format-card__media">
           <img class="media-img" src="images/fop.jpg" alt="Підприємиця перевіряє продажі на касовому терміналі у своїй кав’ярні" width="1000" height="747" loading="lazy">
@@ -1541,7 +1546,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
             <li>Зарплата й кадри</li>
             <li>ЗЕД</li>
           </ul>
-          <a class="btn" href="#order" data-format="tov">Замовити аудит ТОВ <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn" href="#form-card" data-format="tov">Замовити аудит ТОВ <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         </div>
         <div class="format-card__media">
           <img class="media-img" src="images/legal-entities.jpg" alt="Фінансова директорка та головний бухгалтер переглядають звітність компанії за столом в офісі" width="1000" height="747" loading="lazy">
@@ -1569,7 +1574,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
         <h2 class="h2" id="cta-title">Не чекай, поки помилки виявить <em>податкова</em></h2>
         <p>Перевір стан обліку зараз, отримай незалежний експертний висновок і зрозумій, що потрібно зробити для захисту бізнесу.</p>
         <div class="hero__actions">
-          <a class="btn btn--lg" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn btn--lg" href="#form-card">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
           <a class="btn btn--lg btn--ghost" href="https://t.me/AlfaGoldKiev" target="_blank" rel="noopener"><svg class="icon icon--fill"><use href="#i-telegram"/></svg>Написати в Telegram</a>
         </div>
       </div>
@@ -1578,9 +1583,9 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 </section>
 
 <!-- ================= Process ================= -->
-<section class="section dark grain" id="process" aria-labelledby="process-title">
+<section class="section dark grain" aria-labelledby="process-title">
   <div class="container">
-    <div class="section-head section-head--center reveal">
+    <div class="section-head section-head--center reveal" id="process">
       <span class="eyebrow eyebrow--light"><svg class="mark"><use href="#i-mark"/></svg>Як проходить експрес-аудит</span>
       <h2 class="h2" id="process-title">П’ять кроків від заявки <br>до експертного висновку</h2>
     </div>
@@ -1687,15 +1692,15 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     </ol>
 
     <div class="steps-foot reveal">
-      <a class="btn btn--lg" href="#order">Записатися на консультацію <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+      <a class="btn btn--lg" href="#form-card">Записатися на консультацію <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ================= Result ================= -->
-<section class="section" id="result" aria-labelledby="result-title">
+<section class="section" aria-labelledby="result-title">
   <div class="container result">
-    <div class="result__head reveal">
+    <div class="result__head reveal" id="result">
       <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Що ти отримаєш</span>
       <h2 class="h2" id="result-title">Не просто перелік помилок, а план дій</h2>
     </div>
@@ -1727,7 +1732,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
           <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Зрозумілий для власника експертний висновок</li>
           <li><span class="check"><svg class="icon"><use href="#i-check"/></svg></span>Конкретні рекомендації та план подальших дій</li>
         </ul>
-        <a class="btn" href="#order">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+        <a class="btn" href="#form-card">Замовити експрес-аудит <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
       </div>
 
       <div class="about-media reveal">
@@ -1741,7 +1746,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
           </div>
           <h3>Потрібна швидка консультація?</h3>
           <p>Розкажи про свій бізнес — оцінимо обсяг перевірки та підкажемо, з чого почати.</p>
-          <a class="btn" href="#order">Поговорити з експертом <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+          <a class="btn" href="#form-card">Поговорити з експертом <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
         </div>
       </div>
     </div>
@@ -1755,7 +1760,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
       <span class="eyebrow"><svg class="mark"><use href="#i-mark"/></svg>Вартість</span>
       <h2 class="h2" id="price-title">Від чого залежить вартість аудиту</h2>
       <p class="lead">Ми не називаємо «ціну з повітря». Вартість і строки розраховуємо після попередньої оцінки обсягу обліку та періоду перевірки — і фіксуємо до початку роботи.</p>
-      <a class="btn btn--lg" href="#order">Розрахувати вартість аудиту <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+      <a class="btn btn--lg" href="#form-card">Розрахувати вартість аудиту <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
     </div>
     <div class="faq__list reveal-stagger">
       <details class="acc" name="cost-factors" open>
@@ -1857,6 +1862,7 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
         </div>
 
         <button class="btn btn--block" type="submit">Розрахувати вартість аудиту</button>
+        <p class="form__error" id="form-error" role="alert" hidden>Не вдалося надіслати заявку. Спробуй ще раз або зателефонуй: <a href="tel:+380738070990">+38 (073) 807 09 90</a></p>
         <p class="form__privacy"><svg class="icon"><use href="#i-shield"/></svg>Твої дані конфіденційні й не передаються третім особам</p>
       </form>
 
@@ -1873,14 +1879,14 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
 
 <!-- ================= Mobile sticky CTA ================= -->
 <div class="mobile-cta" id="mobile-cta">
-  <a class="btn" href="#order"><span class="btn__full">Замовити експрес-аудит</span><span class="btn__short" aria-hidden="true">Замовити аудит</span> <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
+  <a class="btn" href="#form-card"><span class="btn__full">Замовити експрес-аудит</span><span class="btn__short" aria-hidden="true">Замовити аудит</span> <svg class="icon"><use href="#i-arrow-ur"/></svg></a>
   <a class="tg-btn" href="https://t.me/AlfaGoldKiev" target="_blank" rel="noopener" aria-label="Написати в Telegram"><svg class="icon icon--fill"><use href="#i-telegram"/></svg></a>
 </div>
 
 <!-- ================= Contacts ================= -->
-<footer class="footer grain" id="contacts">
+<footer class="footer grain">
   <div class="container">
-    <div class="footer__grid">
+    <div class="footer__grid" id="contacts">
       <div class="footer__brand">
         <svg class="logo__mark" role="img" aria-label="Alfa Gold"><use href="#logo-alfagold"/></svg>
         <p>Бухгалтерський та податковий супровід ФОП і ТОВ. Експрес-аудит обліку з експертним висновком і планом дій.</p>
@@ -2030,6 +2036,31 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
   if (document.fonts) document.fonts.addEventListener('loadingdone', runOrphans);
   window.addEventListener('resize', () => { clearTimeout(orphanTimer); orphanTimer = setTimeout(runOrphans, 120); });
 
+  // Anchor links: land the target just below the fixed header, on every screen size.
+  // Uses layout position (offsetTop), so not-yet-revealed blocks don't land a few pixels off.
+  const anchorTop = (el) => { let y = 0; for (let n = el; n; n = n.offsetParent) y += n.offsetTop; return y; };
+  const scrollToTarget = (id, smooth) => {
+    if (id === 'top') { window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' }); return true; }
+    const el = document.getElementById(id);
+    if (!el) return false;
+    const offset = document.querySelector('.site-header__bar').offsetHeight + 20;
+    window.scrollTo({ top: Math.max(anchorTop(el) - offset, 0), behavior: smooth && !reduceMotion ? 'smooth' : 'auto' });
+    return true;
+  };
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || link.getAttribute('href').length < 2) return;
+    const id = decodeURIComponent(link.getAttribute('href').slice(1));
+    if (!scrollToTarget(id, true)) return;
+    e.preventDefault();
+    history.pushState(null, '', '#' + id);
+    if (id === 'main') document.getElementById('main').focus({ preventScroll: true });
+  });
+  // Opening the page with a #link, or going back/forward
+  const scrollToHash = () => { if (location.hash.length > 1) scrollToTarget(decodeURIComponent(location.hash.slice(1)), false); };
+  window.addEventListener('load', () => setTimeout(scrollToHash, 50));
+  window.addEventListener('popstate', scrollToHash);
+
   // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -2139,8 +2170,15 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
     setBusinessError('');
   }));
 
-  form.addEventListener('submit', (e) => {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const submitLabel = submitBtn.textContent;
+  const formError = document.getElementById('form-error');
+  let sending = false;
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (sending) return;
+    formError.hidden = true;
     const n = toNational(phone.value);
     const errs = [[nameInput, nameError(nameInput.value)], [phone, phoneError(n)]];
     errs.forEach(([input, msg]) => setError(input, msg));
@@ -2158,11 +2196,28 @@ textarea.input { height: 120px; padding: 18px 22px; border-radius: var(--r-lg); 
       business: business.value,
       message: document.getElementById('f-msg').value.trim(),
     };
-    if (!isBot) {
-      // TODO: send `data` to CRM / Telegram bot endpoint
-      console.info('Lead', data);
+    if (isBot) { card.classList.add('is-sent'); return; }
+
+    // Lead goes to our own /api/lead, which forwards it to the CRM with the secret kept server-side
+    sending = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Надсилаємо…';
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('lead_not_saved_' + response.status);
+      card.classList.add('is-sent');
+      card.scrollIntoView({ block: 'nearest' });
+    } catch (err) {
+      formError.hidden = false;
+    } finally {
+      sending = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
     }
-    card.classList.add('is-sent');
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
