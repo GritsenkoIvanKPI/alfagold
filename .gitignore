@@ -18,6 +18,6 @@
 
 # Brand files not used by the page
 /brand_assets/*
-!/brand_assets/team.jpg
+!/brand_assets/team-original.jpg
 
 .DS_Store
